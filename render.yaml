@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: azza-defi
-    runtime: node
-    rootDir: bot-service
-    buildCommand: pnpm run build
-    startCommand: pnpm run start
