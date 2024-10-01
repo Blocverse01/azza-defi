@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_crtrjt22drskjnk88glg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "user",
+          "column": {
+            "pk": false,
+            "name": "smartWalletAddress",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "default": "''",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_crtrjt22drskjnk88glg",
+  "parent": "mig_crtrj4i2drskjnk88g5g",
+  "schema": "public",
+  "startedAt": "2024-10-01T08:59:34.014479Z"
+}

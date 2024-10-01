@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_crtsal06plqg2em455f0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "user",
+          "column": {
+            "pk": false,
+            "name": "displayName",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "default": "''",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_crtsal06plqg2em455f0",
+  "parent": "mig_crtrjt22drskjnk88glg",
+  "schema": "public",
+  "startedAt": "2024-10-01T09:48:04.714978Z"
+}

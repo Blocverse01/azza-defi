@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_crtrj4i2drskjnk88g5g",
+    "operations": [
+      {
+        "add_column": {
+          "table": "user",
+          "column": {
+            "pk": false,
+            "name": "phoneNumber",
+            "type": "text",
+            "unique": true,
+            "comment": "",
+            "default": "''",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_crtrj4i2drskjnk88g5g",
+  "parent": "mig_crtri6q2drskjnk88fng",
+  "schema": "public",
+  "startedAt": "2024-10-01T08:57:55.807304Z"
+}

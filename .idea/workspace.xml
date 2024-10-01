@@ -4,22 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="getting based">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/.eslintrc.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/next.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/env.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/_app.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/styles/globals.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/tsconfig.json" afterDir="false" />
+    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/Replicate/ReplicateIntegrationLibrary.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/Replicate/client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserManagementService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/UserManagment/app.user-management.schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/BotCommands/BotCommandHandler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/BotCommands/commands.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/MessageGenerators.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/contextSchema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppBotApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/app.whatsapp.schemas.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/app.whatsapp.types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/constants/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/constants/numbers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/cors/allowedOrigins.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/cors/corsOptions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/abis/erc-20.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/data/db.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/exceptions/HttpException.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/explorer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/logger.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/routes/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/routes/userManagementRoutes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/routes/whatsappBotRoutes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/schemas/schemas.base.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/encryption.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/logging.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/prompt-parser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/data/adapters/userAdapter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/api-request-maker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/azza-defi-requests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/env.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +95,11 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "DefaultHtmlFileTemplate": "HTML File",
     "Node.js.eslint.config.mjs.executor": "Run",
+    "Node.js.scratch_3.ts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/joshuaavoaja/Code/azza-DeFi/mini-webapp/src/data/api-requests",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -81,17 +112,34 @@
     "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TypeScript"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mini-webapp/src/data/api-requests" />
+      <recent name="$PROJECT_DIR$/bot-service/src/routes" />
+      <recent name="$PROJECT_DIR$/bot-service/src/utils" />
+      <recent name="$PROJECT_DIR$/bot-service/src/app" />
+      <recent name="$PROJECT_DIR$/bot-service/src/app/WhatsApp" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mini-webapp/src/data/base" />
+      <recent name="$PROJECT_DIR$/bot-service/src/app/WhatsApp" />
+      <recent name="$PROJECT_DIR$/bot-service/src/app" />
       <recent name="$PROJECT_DIR$/mini-webapp/src" />
       <recent name="$PROJECT_DIR$/bot-service" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Node.js.scratch_3.ts">
     <configuration name="eslint.config.mjs" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/eslint.config.mjs" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_3.ts" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$APPLICATION_CONFIG_DIR$/scratches/scratch_3.ts" typescript-loader="bundled" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -106,6 +154,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.scratch_3.ts" />
         <item itemvalue="npm.dev" />
         <item itemvalue="Node.js.eslint.config.mjs" />
       </list>
@@ -128,7 +177,8 @@
       <updated>1727712910906</updated>
       <workItem from="1727712914448" duration="348000" />
       <workItem from="1727713293287" duration="1051000" />
-      <workItem from="1727714388321" duration="7497000" />
+      <workItem from="1727714388321" duration="24954000" />
+      <workItem from="1727799046294" duration="9737000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -138,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727762338815</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="getting based">
+      <option name="closed" value="true" />
+      <created>1727762667147</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727762667147</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

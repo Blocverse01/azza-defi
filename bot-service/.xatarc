@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Blocverse-Development-es1pni.us-east-1.xata.sh/db/azza-defi",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
