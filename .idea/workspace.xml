@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="getting based">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/.eslintrc.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/next.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/_app.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/styles/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;joshDamian&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Blocverse01/azza-defi.git&quot;,
+    &quot;accountId&quot;: &quot;0b41c735-0d77-4b02-9c3a-8cdc418506b6&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2mnWdgtd3T6uOyBgloRqegOVPYT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.eslint.config.mjs.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mini-webapp/src" />
+      <recent name="$PROJECT_DIR$/bot-service" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="eslint.config.mjs" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/eslint.config.mjs" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="Node.js.eslint.config.mjs" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23339.15" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="" />
+      <created>1727712910906</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727712910906</updated>
+      <workItem from="1727712914448" duration="348000" />
+      <workItem from="1727713293287" duration="1051000" />
+      <workItem from="1727714388321" duration="7497000" />
+    </task>
+    <task id="LOCAL-00001" summary="getting based">
+      <option name="closed" value="true" />
+      <created>1727762338815</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727762338815</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="getting based" />
+    <option name="LAST_COMMIT_MESSAGE" value="getting based" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+</project>
