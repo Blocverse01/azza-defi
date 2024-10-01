@@ -27,6 +27,11 @@
     }
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "eslint.config.mjs"
+  ],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
   ]
 }

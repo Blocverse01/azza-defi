@@ -1,7 +1,6 @@
-import express, { type Request } from 'express';
-import cors from 'cors';
-import { NOT_FOUND, OK } from "@/constants/status-codes";
-import env from "@/constants/env";
+import express from 'express';
+import { NOT_FOUND, OK } from '@/constants/status-codes';
+import env from '@/constants/env';
 
 const app = express();
 
