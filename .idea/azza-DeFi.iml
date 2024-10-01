@@ -6,6 +6,8 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/bot-service/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bot-service/build" />
+      <excludeFolder url="file://$MODULE_DIR$/mini-webapp/.vercel" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

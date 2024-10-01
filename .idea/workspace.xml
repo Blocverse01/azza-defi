@@ -5,50 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/Replicate/ReplicateIntegrationLibrary.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/Replicate/client.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserManagementService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/UserManagment/app.user-management.schema.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/BotCommands/BotCommandHandler.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/BotCommands/commands.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/MessageGenerators.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/contextSchema.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppBotApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/app.whatsapp.schemas.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/app.whatsapp.types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/constants/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/constants/numbers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/cors/allowedOrigins.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/cors/corsOptions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/abis/erc-20.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/data/db.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/exceptions/HttpException.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/explorer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/logger.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/routes/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/routes/userManagementRoutes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/routes/whatsappBotRoutes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/schemas/schemas.base.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/encryption.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/logging.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/prompt-parser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/data/adapters/userAdapter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/api-request-maker.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/azza-defi-requests.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/env.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot-service/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +136,7 @@
       <workItem from="1727712914448" duration="348000" />
       <workItem from="1727713293287" duration="1051000" />
       <workItem from="1727714388321" duration="24954000" />
-      <workItem from="1727799046294" duration="9737000" />
+      <workItem from="1727799046294" duration="10347000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -196,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727762667147</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add base implementation for bot interactions and user onboarding">
+      <option name="closed" value="true" />
+      <created>1727810698425</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727810698425</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +170,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="getting based" />
-    <option name="LAST_COMMIT_MESSAGE" value="getting based" />
+    <MESSAGE value="add base implementation for bot interactions and user onboarding" />
+    <option name="LAST_COMMIT_MESSAGE" value="add base implementation for bot interactions and user onboarding" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
