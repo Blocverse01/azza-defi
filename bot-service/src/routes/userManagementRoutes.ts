@@ -29,9 +29,6 @@ userManagementRouter
         const { signInToken } = req.params;
         const { smartWalletAddress } = req.body;
 
-        console.log('smartWalletAddress', smartWalletAddress);
-        console.log('signInToken', signInToken);
-
         if (!signInToken) {
             return res.status(BAD_REQUEST).send('Missing signInToken');
         }
@@ -53,8 +50,6 @@ userManagementRouter
                 smartWalletAddress
             );
 
-            console.log({ updatedRecord });
-
             if (!updatedRecord) {
                 return res.status(BAD_REQUEST).json({
                     message: 'Failed to update wallet address',
@@ -65,8 +60,6 @@ userManagementRouter
                 updatedRecord.phoneNumber!,
                 `Hi ${updatedRecord.displayName}, your wallet address has been created successfully.\n\nWallet Address: ${updatedRecord.smartWalletAddress}`
             );
-
-            console.log({ message });
 
             // Todo: Refactor after testing
             await WhatsAppBotApi.sendWhatsappMessage(env.WA_BUSINESS_NUMBER_ID, message);

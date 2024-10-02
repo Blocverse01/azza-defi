@@ -45,6 +45,7 @@ export const makeApiRequest = async (
     method: requestConfig.method,
     headers: requestHeaders,
     body: requestBody,
+    mode: 'cors',
   });
 
   let responseJson: unknown;
