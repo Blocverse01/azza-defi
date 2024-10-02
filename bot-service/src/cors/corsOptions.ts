@@ -4,7 +4,7 @@ import { CorsOptions } from 'cors';
 
 const corsOptions: CorsOptions = {
     origin: (origin, callback) => {
-        const isAllowedOrigin = allowedOrigins.indexOf(origin!) !== -1 || !origin;
+        const isAllowedOrigin = !origin || allowedOrigins.includes(origin);
         const matchesPattern =
             origin && allowedOriginPatterns.some((pattern) => pattern.test(origin));
 

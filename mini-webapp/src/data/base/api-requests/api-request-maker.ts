@@ -68,7 +68,9 @@ export const computeRequestUrl = (
   const [requestParams, requestQuery] = [input.params, input.query];
   const requestPath = requestConfig.requestPath;
 
-  let baseRequestUrl = `${baseUrl}/${requestPath}`;
+  const formattedRequestPath = requestPath.startsWith('/') ? requestPath.slice(1) : requestPath;
+
+  let baseRequestUrl = `${baseUrl}/${formattedRequestPath}`;
 
   if (requestParams && Object.keys(requestParams).length > 0) {
     Object.values(requestParams).forEach((param) => {
