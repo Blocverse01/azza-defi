@@ -16,7 +16,9 @@ import { appConfig } from '@/constants/config';
 class WhatsAppWebhookController {
     public static async receiveMessageWebhook(req: Request, res: Response) {
         try {
-            await WhatsAppWebhookController.messageWebhookReceiptVerification(req, res);
+            res.sendStatus(OK);
+
+            //await WhatsAppWebhookController.messageWebhookReceiptVerification(req, res);
 
             logSync('debug', 'Original Body Received', {
                 webhookBody: req.body,
