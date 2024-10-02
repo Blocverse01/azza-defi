@@ -1,6 +1,5 @@
 import Head from 'next/head';
 
-import { useEffect } from 'react';
 import { CoinbaseWalletSDK } from '@coinbase/wallet-sdk';
 import { APP_NAME } from '~/constants/strings';
 import { useRouter } from 'next/router';
@@ -12,6 +11,10 @@ export default function Home() {
   const signInToken = router.query.sit as string;
 
   async function connectAccount(signInToken: string) {
+    if(!signInToken) {
+      alert('Invalid sign in token');
+    }
+
     const coinbaseWalletSDK  = new CoinbaseWalletSDK({
       appName: APP_NAME as string,
       appChainIds: [8453]
@@ -35,13 +38,6 @@ export default function Home() {
     }
   }
 
-  useEffect(() => {
-    if (signInToken) {
-      console.log('Sign in token:', signInToken);
-      void connectAccount(signInToken);
-    }
-  }, [signInToken]);
-
   return (
     <>
       <Head>
@@ -49,6 +45,10 @@ export default function Home() {
         <meta name="description" content="Azza DeFi" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <div className={'py-6 px-8 min-h-[400px] flex items-center justify-center'}>
+        <button onClick={() => connectAccount(signInToken)}>Connect Your Wallet</button>
+      </div>
     </>
   );
 }

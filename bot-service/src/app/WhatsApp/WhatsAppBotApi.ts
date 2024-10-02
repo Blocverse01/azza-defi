@@ -50,7 +50,7 @@ class WhatsAppBotApi {
                 requestOptions
             );
 
-            logSync('debug', 'Message marked as read successfully:', response.data); // Handle successful response (optional)
+            logSync('debug', 'Message marked as read successfully:', response.data);
         } catch (error) {
             await logServiceError(error, 'Error marking message as read:');
         }

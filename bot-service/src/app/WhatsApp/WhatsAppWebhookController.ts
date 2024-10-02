@@ -28,6 +28,7 @@ class WhatsAppWebhookController {
 
             if (message?.id) {
                 await WhatsAppBotApi.markMassageAsRead(businessPhoneNumberId, message.id);
+                console.log('Message marked as read');
             }
 
             logSync('debug', 'Extracted message parts', {
