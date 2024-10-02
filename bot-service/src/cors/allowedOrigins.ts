@@ -1,7 +1,9 @@
 const allowedOrigins = [
     'http://localhost:3001',
     'http://localhost:3000',
+    'http://localhost:3000/',
     'https://azza-defi-mini-app.vercel.app',
+    'https://azza-defi-mini-app.vercel.app/',
     // Add other non-regex origins here
 ];
 

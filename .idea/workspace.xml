@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/cors/corsOptions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/cors/corsOptions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/cors/allowedOrigins.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/cors/allowedOrigins.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/azza-defi-requests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/azza-defi-requests.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +138,7 @@
       <workItem from="1727713293287" duration="1051000" />
       <workItem from="1727714388321" duration="24954000" />
       <workItem from="1727799046294" duration="12934000" />
-      <workItem from="1727870265472" duration="6110000" />
+      <workItem from="1727870265472" duration="6620000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -229,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727881220184</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="debug cors issue">
+      <option name="closed" value="true" />
+      <created>1727883192658</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727883192661</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
