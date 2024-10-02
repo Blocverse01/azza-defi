@@ -8,6 +8,8 @@ const corsOptions: CorsOptions = {
         const matchesPattern =
             origin && allowedOriginPatterns.some((pattern) => pattern.test(origin));
 
+        console.log({ origin, isAllowedOrigin, matchesPattern });
+
         if (isAllowedOrigin || matchesPattern) {
             callback(null, true);
         } else {

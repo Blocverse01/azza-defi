@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 export const SAVE_USER_WALLET_ADDRESS = {
     method: 'POST',
-    requestPath: '/user',
+    requestPath: '/users',
     responseJsonSchema: z.object({
         message: z.string(),
     }),
@@ -19,7 +19,7 @@ export const SAVE_USER_WALLET_ADDRESS = {
 
 export const GET_USER_DISPLAY_NAME = {
     method: 'GET',
-    requestPath: '/user',
+    requestPath: '/users',
     responseJsonSchema: z.object({
         data: z.object({
             displayName: z.string(),
