@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/utils/encryption.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/utils/encryption.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,35 +50,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Node.js.eslint.config.mjs.executor": "Run",
-    "Node.js.scratch_3.ts.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/joshuaavoaja/Code/azza-DeFi/mini-webapp/src/data/api-requests",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "npm.dev.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Node.js.eslint.config.mjs.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.scratch_3.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/mini-webapp/src/data/api-requests&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TypeScript"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TypeScript&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mini-webapp/src/data/api-requests" />
@@ -135,7 +138,8 @@
       <workItem from="1727712914448" duration="348000" />
       <workItem from="1727713293287" duration="1051000" />
       <workItem from="1727714388321" duration="24954000" />
-      <workItem from="1727799046294" duration="11809000" />
+      <workItem from="1727799046294" duration="12934000" />
+      <workItem from="1727870265472" duration="482000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -177,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727813658810</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="debug render deployment">
+      <option name="closed" value="true" />
+      <created>1727814526198</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727814526198</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +200,8 @@
     <MESSAGE value="add base implementation for bot interactions and user onboarding" />
     <MESSAGE value="revert bundler configuration" />
     <MESSAGE value="add render blue spec file" />
-    <option name="LAST_COMMIT_MESSAGE" value="add render blue spec file" />
+    <MESSAGE value="debug render deployment" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug render deployment" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

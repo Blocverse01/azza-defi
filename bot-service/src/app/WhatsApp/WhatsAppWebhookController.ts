@@ -133,12 +133,14 @@ class WhatsAppWebhookController {
         const user = await UserManagementService.getUserByPhoneNumber(phoneParams.userPhoneNumber);
 
         //=================== NEW USER MESSAGE HANDLER ===================//
-        if (!user) {
+        if (!user || !user.smartWalletAddress) {
             await UserInteractionHandlers.handleFirstTimeUserInteraction(
                 phoneParams,
                 displayName,
                 appConfig.MINI_APP_URL
             );
+
+            return;
         }
 
         // ============== HANDLE TEXT MESSAGES ============== //

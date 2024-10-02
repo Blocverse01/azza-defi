@@ -1,13 +1,11 @@
 import * as crypto from 'node:crypto';
 
 const ALGORITHM = 'aes-256-ctr';
-const keyLength = 32; // 256 bits
-
 const KEY_LENGTH = 32; // 256 bits
 
 export const encrypt = (data: string, key: string): string => {
-    if (key.length !== keyLength) {
-        throw new Error(`Key must be ${keyLength} characters long`);
+    if (key.length !== KEY_LENGTH) {
+        throw new Error(`Key must be ${KEY_LENGTH} characters long`);
     }
 
     const iv = crypto.randomBytes(16);
@@ -21,8 +19,8 @@ export const encrypt = (data: string, key: string): string => {
 };
 
 export const decrypt = (encryptedData: string, key: string): string => {
-    if (key.length !== keyLength) {
-        throw new Error(`Key must be ${keyLength} characters long`);
+    if (key.length !== KEY_LENGTH) {
+        throw new Error(`Key must be ${KEY_LENGTH} characters long`);
     }
 
     const [ivHex, encryptedHex] = encryptedData.split(':');
