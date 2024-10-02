@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/utils/encryption.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/utils/encryption.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/routes/userManagementRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/routes/userManagementRoutes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +137,7 @@
       <workItem from="1727713293287" duration="1051000" />
       <workItem from="1727714388321" duration="24954000" />
       <workItem from="1727799046294" duration="12934000" />
-      <workItem from="1727870265472" duration="482000" />
+      <workItem from="1727870265472" duration="1414000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -189,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727814526198</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="debug first time user message handling">
+      <option name="closed" value="true" />
+      <created>1727870949051</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727870949053</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +207,8 @@
     <MESSAGE value="revert bundler configuration" />
     <MESSAGE value="add render blue spec file" />
     <MESSAGE value="debug render deployment" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug render deployment" />
+    <MESSAGE value="debug first time user message handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug first time user message handling" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
