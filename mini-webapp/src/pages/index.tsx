@@ -1,9 +1,9 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import { CoinbaseWalletSDK } from '@coinbase/wallet-sdk';
-import { APP_NAME } from '~/constants/strings';
-import { useRouter } from 'next/router';
-import { saveUserWalletAddress } from '~/data/adapters/userAdapter';
+import { CoinbaseWalletSDK } from "@coinbase/wallet-sdk";
+import { APP_NAME } from "~/constants/strings";
+import { useRouter } from "next/router";
+import { saveUserWalletAddress } from "~/data/adapters/userAdapter";
 
 export default function Home() {
   const router = useRouter();
@@ -11,30 +11,37 @@ export default function Home() {
   const signInToken = router.query.sit as string;
 
   async function connectAccount(signInToken: string) {
-    if(!signInToken) {
-      alert('Invalid sign in token');
+    if (!signInToken) {
+      alert("Invalid sign in token");
     }
 
-    const coinbaseWalletSDK  = new CoinbaseWalletSDK({
+    const coinbaseWalletSDK = new CoinbaseWalletSDK({
       appName: APP_NAME as string,
-      appChainIds: [8453]
+      appChainIds: [8453],
     });
 
-    const provider = coinbaseWalletSDK.makeWeb3Provider({options: 'smartWalletOnly'});
-    const addresses = await provider.request({method: 'eth_requestAccounts'}) as string[];
+    const provider = coinbaseWalletSDK.makeWeb3Provider({
+      options: "smartWalletOnly",
+    });
+    const addresses = (await provider.request({
+      method: "eth_requestAccounts",
+    })) as string[];
 
     const indexZeroAddress = addresses[0];
 
-    if(indexZeroAddress) {
-      const response = await saveUserWalletAddress(signInToken,indexZeroAddress);
+    if (indexZeroAddress) {
+      const response = await saveUserWalletAddress(
+        signInToken,
+        indexZeroAddress
+      );
 
-      if(response.saved) {
-        console.log('Wallet address saved');
+      if (response.saved) {
+        console.log("Wallet address saved");
       } else {
-        console.log('Failed to save wallet address');
+        console.log("Failed to save wallet address");
       }
 
-      alert(response.message)
+      alert(response.message);
     }
   }
 
@@ -42,12 +49,21 @@ export default function Home() {
     <>
       <Head>
         <title>Azza DeFi</title>
-        <meta name="description" content="Azza DeFi" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='Azza DeFi' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className={'py-6 px-8 min-h-[400px] flex items-center justify-center'}>
-        <button onClick={() => connectAccount(signInToken)}>Connect Your Wallet</button>
+      <div
+        className={"py-6 px-8 min-h-[400px] flex items-center justify-center"}
+      >
+        <button
+          className={
+            "text-az-primary-black font-subj text-[24px] font-extrabold"
+          }
+          onClick={() => connectAccount(signInToken)}
+        >
+          Connect Your Wallet
+        </button>
       </div>
     </>
   );
