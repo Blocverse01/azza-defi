@@ -5,9 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/evm.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/tokens.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/viem/clients.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/json-formatting.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/number-formatting.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/constants/appConfig.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/token-transfer-tx.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/resources/viem/clients.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/wagmi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/abis/erc-20.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/api-request-maker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/api-request-maker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/.xata/migrations/.ledger" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/.ledger" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/.xata/version/compatibility.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/.xata/version/compatibility.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/eslint.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserManagementService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserManagementService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/contextSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/contextSchema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppBotApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppBotApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/env.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/resources/abis/erc-20.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/resources/abis/erc-20.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/resources/data/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/resources/data/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/schemas/schemas.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/schemas/schemas.base.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/utils/prompt-parser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/utils/prompt-parser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/xata.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/xata.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/config/coinbaseSdk.setup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/AzzaDeFi/Web3Library.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +95,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/mini-webapp/src/data/api-requests&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -68,8 +106,9 @@
     &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/mini-webapp/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -80,11 +119,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$/mini-webapp/src/data/api-requests" />
       <recent name="$PROJECT_DIR$/bot-service/src/routes" />
       <recent name="$PROJECT_DIR$/bot-service/src/utils" />
       <recent name="$PROJECT_DIR$/bot-service/src/app" />
-      <recent name="$PROJECT_DIR$/bot-service/src/app/WhatsApp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mini-webapp/src/data/base" />
@@ -94,7 +133,7 @@
       <recent name="$PROJECT_DIR$/bot-service" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.scratch_3.ts">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="eslint.config.mjs" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/eslint.config.mjs" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -102,19 +141,24 @@
       <method v="2" />
     </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+      <package-json value="$PROJECT_DIR$/bot-service/package.json" />
       <command value="run" />
       <scripts>
         <script value="dev" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="/usr/local/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Node.js.eslint.config.mjs" />
+      <item itemvalue="Node.js.scratch_3.ts" />
+      <item itemvalue="npm.dev" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.scratch_3.ts" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="Node.js.scratch_3.ts" />
         <item itemvalue="Node.js.eslint.config.mjs" />
       </list>
     </recent_temporary>
@@ -138,7 +182,13 @@
       <workItem from="1727713293287" duration="1051000" />
       <workItem from="1727714388321" duration="24954000" />
       <workItem from="1727799046294" duration="12934000" />
-      <workItem from="1727870265472" duration="7187000" />
+      <workItem from="1727870265472" duration="7500000" />
+      <workItem from="1728304743691" duration="3658000" />
+      <workItem from="1728547381632" duration="2539000" />
+      <workItem from="1728638415354" duration="2501000" />
+      <workItem from="1728642657712" duration="34149000" />
+      <workItem from="1728693246179" duration="9856000" />
+      <workItem from="1728729465105" duration="4284000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -244,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727883798475</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="use correct API endpoint">
+      <option name="closed" value="true" />
+      <created>1727884765928</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727884765929</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +317,8 @@
     <MESSAGE value="debug first time user message handling" />
     <MESSAGE value="debug webhook receipt" />
     <MESSAGE value="debug cors issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug cors issue" />
+    <MESSAGE value="use correct API endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="use correct API endpoint" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

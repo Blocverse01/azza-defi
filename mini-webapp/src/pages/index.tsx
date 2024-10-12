@@ -1,42 +1,67 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import { CoinbaseWalletSDK } from '@coinbase/wallet-sdk';
-import { APP_NAME } from '~/constants/strings';
-import { useRouter } from 'next/router';
-import { saveUserWalletAddress } from '~/data/adapters/userAdapter';
+import { useRouter } from "next/router";
+import { saveUserWalletAddress } from "~/data/adapters/userAdapter";
+import { useAccount, useConnect } from "wagmi";
+import { useCallback } from "react";
+import { type Address } from "viem";
 
 export default function Home() {
   const router = useRouter();
 
   const signInToken = router.query.sit as string;
 
-  async function connectAccount(signInToken: string) {
-    if(!signInToken) {
-      alert('Invalid sign in token');
+  const { connectors, connectAsync } = useConnect();
+  const signedInAccount = useAccount();
+
+  async function syncWalletWithSignInToken(
+    signInToken: string,
+    walletAddress: string,
+  ) {
+    if (!signInToken) {
+      alert("Invalid sign in token");
     }
 
-    const coinbaseWalletSDK  = new CoinbaseWalletSDK({
-      appName: APP_NAME as string,
-      appChainIds: [8453]
-    });
+    if (!walletAddress) {
+      alert("Invalid wallet address");
+    }
 
-    const provider = coinbaseWalletSDK.makeWeb3Provider({options: 'smartWalletOnly'});
-    const addresses = await provider.request({method: 'eth_requestAccounts'}) as string[];
+    const response = await saveUserWalletAddress(signInToken, walletAddress);
 
-    const indexZeroAddress = addresses[0];
+    if (response.saved) {
+      console.log("Wallet address saved");
+    } else {
+      console.log("Failed to save wallet address");
+    }
 
-    if(indexZeroAddress) {
-      const response = await saveUserWalletAddress(signInToken,indexZeroAddress);
+    alert(response.message);
+  }
 
-      if(response.saved) {
-        console.log('Wallet address saved');
+  const createWallet = useCallback(async () => {
+    const coinbaseWalletConnector = connectors.find(
+      (connector) => connector.id === "coinbaseWalletSDK",
+    );
+
+    if (!signInToken) {
+      alert("You need a sign in token to connect your wallet");
+    }
+
+    let walletAddress: Address;
+
+    if (coinbaseWalletConnector) {
+      if (
+        signedInAccount?.address &&
+        signedInAccount.connector?.uid === coinbaseWalletConnector.uid
+      ) {
+        walletAddress = signedInAccount.address;
       } else {
-        console.log('Failed to save wallet address');
+        const data = await connectAsync({ connector: coinbaseWalletConnector });
+        walletAddress = data.accounts[0];
       }
 
-      alert(response.message)
+      await syncWalletWithSignInToken(signInToken, walletAddress);
     }
-  }
+  }, [connectors, connectAsync, signInToken, signedInAccount]);
 
   return (
     <>
@@ -46,8 +71,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={'py-6 px-8 min-h-[400px] flex items-center justify-center'}>
-        <button onClick={() => connectAccount(signInToken)}>Connect Your Wallet</button>
+      <div
+        className={"py-6 px-8 min-h-[400px] flex items-center justify-center"}
+      >
+        <button onClick={() => createWallet()}>Connect Your Wallet</button>
       </div>
     </>
   );
