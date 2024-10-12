@@ -5,6 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cru23h86plqg2em45jug.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cru25ja2drskjnk891p0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l593ujno0fvdn3r4g.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l5s3ujno0fvdn3r5g.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l65jujno0fvdn3r6g.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l6j22go8te7ad5490.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l75d4rshpd1p6dr7g.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l7e22go8te7ad54a0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l7pq2go8te7ad54b0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qbmd4rshpd1p6dte0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qc33ujno0fvdn3slg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qcf22go8te7ad55t0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qcka2go8te7ad55u0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qft54rshpd1p6dtf0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qiiq2go8te7ad55vg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qj054rshpd1p6dtjg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qkgd4rshpd1p6dtkg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4ql6l4rshpd1p6dtmg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qq2a2go8te7ad561g.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qq6l4rshpd1p6dtpg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qqdt4rshpd1p6dtqg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qrgl4rshpd1p6dtrg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qvia2go8te7ad566g.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/AzzaDeFi/Web3Library.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/config.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/bot-service/src/resources/evm.config.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/bot-service/src/resources/tokens.ts" afterDir="false" />
@@ -40,11 +64,12 @@
       <change beforePath="$PROJECT_DIR$/bot-service/src/xata.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/xata.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/config/coinbaseSdk.setup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/AzzaDeFi/Web3Library.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/config/coinbaseSdk.setup.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-webapp/src/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/env.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +85,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -86,37 +116,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Node.js.eslint.config.mjs.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.scratch_3.ts.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/prettier&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/joshuaavoaja/Code/azza-DeFi/mini-webapp/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.eslint.config.mjs.executor": "Run",
+    "Node.js.scratch_3.ts.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "#1 on Merging create-wallet",
+    "js.linters.configure.manually.selectedeslint": "true",
+    "last_opened_file_path": "/Users/joshuaavoaja/Code/azza-DeFi/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/prettier",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/joshuaavoaja/Code/azza-DeFi/mini-webapp/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TypeScript&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TypeScript"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources" />
@@ -188,7 +218,7 @@
       <workItem from="1728638415354" duration="2501000" />
       <workItem from="1728642657712" duration="34149000" />
       <workItem from="1728693246179" duration="9856000" />
-      <workItem from="1728729465105" duration="4790000" />
+      <workItem from="1728729465105" duration="7574000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -310,7 +340,55 @@
       <option name="project" value="LOCAL" />
       <updated>1728735165220</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add migration files">
+      <option name="closed" value="true" />
+      <created>1728735216850</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735216850</updated>
+    </task>
+    <task id="LOCAL-00017" summary="delete empty file">
+      <option name="closed" value="true" />
+      <created>1728735272531</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735272531</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Setup for basic wallet actions including:&#10;- adding beneficiaries&#10;- querying balances&#10;- transferring to a beneficiary">
+      <option name="closed" value="true" />
+      <created>1728735615177</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735615177</updated>
+    </task>
+    <task id="LOCAL-00019" summary="code formatting">
+      <option name="closed" value="true" />
+      <created>1728735710395</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735710395</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add editor file">
+      <option name="closed" value="true" />
+      <created>1728735753997</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735753997</updated>
+    </task>
+    <task id="LOCAL-00021" summary="update lockfile">
+      <option name="closed" value="true" />
+      <created>1728735949420</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735949420</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +405,13 @@
     <MESSAGE value="debug cors issue" />
     <MESSAGE value="use correct API endpoint" />
     <MESSAGE value="switch to using onchain kit, easier (than I expected) to set up btw " />
-    <option name="LAST_COMMIT_MESSAGE" value="switch to using onchain kit, easier (than I expected) to set up btw " />
+    <MESSAGE value="add migration files" />
+    <MESSAGE value="delete empty file" />
+    <MESSAGE value="Setup for basic wallet actions including:&#10;- adding beneficiaries&#10;- querying balances&#10;- transferring to a beneficiary" />
+    <MESSAGE value="code formatting" />
+    <MESSAGE value="add editor file" />
+    <MESSAGE value="update lockfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="update lockfile" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
