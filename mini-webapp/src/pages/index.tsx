@@ -3,19 +3,22 @@ import { Info, LogoSm, WhatsappIcon3 } from "~/assets";
 import React, { useCallback } from "react";
 import Logo from "../assets/logo.svg";
 import Image from "next/image";
-
 import Faq from "../components/Faq";
 
-import { useRouter } from "next/router";
-import { saveUserWalletAddress } from "~/data/adapters/userAdapter";
+import {
+  getUserDisplayName,
+  saveUserWalletAddress,
+} from "~/data/adapters/userAdapter";
 import { useAccount, useConnect } from "wagmi";
 import { type Address } from "viem";
+import {
+  type GetServerSidePropsContext,
+  type InferGetServerSidePropsType,
+} from "next";
 
-export default function Home() {
-  const router = useRouter();
+type PageProps = InferGetServerSidePropsType<typeof getServerSideProps>;
 
-  const signInToken = router.query.sit as string;
-
+export default function Home({ userDisplayName, signInToken }: PageProps) {
   const { connectors, connectAsync } = useConnect();
   const signedInAccount = useAccount();
 
@@ -77,7 +80,7 @@ export default function Home() {
       <div className={`bg-az-primary-green`}>
         <section
           className={
-            "relative  hero-background mt text-white py-4 px-6 md:px-[120px] "
+            "relative hero-background mt text-white py-4 px-6 md:px-[120px] "
           }
         >
           <Image src={Logo as string} alt="logo" />
@@ -103,8 +106,8 @@ export default function Home() {
                 "max-w-[485px] md:text-[20px] leading-[24px] md:leading-[28px] text-center mx-auto"
               }
             >
-              Hi, John Doe. Kindly click on the button below to continue
-              creating a wallet on AZZA.
+              Hi, {userDisplayName}. Kindly click on the button below to
+              continue creating a wallet on AZZA.
             </p>
 
             <button
@@ -149,3 +152,18 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  const { sit } = context.query;
+
+  const userDisplayName = sit ? await getUserDisplayName(sit as string) : null;
+
+  return {
+    props: {
+      userDisplayName,
+      signInToken: sit ? (sit as string) : null,
+    },
+  };
+};

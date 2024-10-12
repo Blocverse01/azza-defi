@@ -19,6 +19,9 @@ export const env = createEnv({
    */
   client: {
     NEXT_PUBLIC_ONCHAINKIT_API_KEY: z.string(),
+    NEXT_PUBLIC_AZZA_DEFI_API_URL: z
+      .string()
+      .default("https://azza-defi.onrender.com/api"),
   },
 
   /**
@@ -30,6 +33,7 @@ export const env = createEnv({
     PAYMASTER_SERVICE_URL_SEPOLIA: process.env.PAYMASTER_SERVICE_URL_SEPOLIA,
     PAYMASTER_SERVICE_URL: process.env.PAYMASTER_SERVICE_URL,
     NEXT_PUBLIC_ONCHAINKIT_API_KEY: process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY,
+    NEXT_PUBLIC_AZZA_DEFI_API_URL: process.env.NEXT_PUBLIC_AZZA_DEFI_API_URL,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

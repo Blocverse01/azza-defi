@@ -2,12 +2,10 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import {
   type Address as AddressType,
-  decodeFunctionData,
   formatUnits,
   getAddress,
-  type Hex,
+  parseUnits,
 } from "viem";
-import { TRANSFER_ABI } from "../../../resources/abis/erc-20";
 import {
   Transaction,
   TransactionButton,
@@ -24,7 +22,7 @@ import Head from "next/head";
 import Logo from "../assets/logo.svg";
 import Image from "next/image";
 import { TokenRow } from "@coinbase/onchainkit/token";
-import { getTokenByAddress } from "~/resources/tokens";
+import { getTokenBySymbol } from "~/resources/tokens";
 import {
   Address,
   Avatar,
@@ -35,49 +33,34 @@ import {
 
 type DecodedTokenTransferTx = {
   recipient: AddressType;
-  tokenAddress: AddressType;
   amount: bigint;
 };
 
-export default function TokenTransferTxPage() {
+export default function NativeTransferTxPage() {
   const router = useRouter();
 
-  const { sit, to, data, decimals } = router.query as Record<string, string>;
+  const { sit, to, amount } = router.query as Record<string, string>;
 
   const [decodedTx, setDecodedTx] = useState<DecodedTokenTransferTx | null>(
     null,
   );
 
   useEffect(() => {
-    if (!to || !data || !decimals) {
+    if (!to || !amount) {
       return;
     }
-
-    const decodedData = decodeFunctionData({
-      abi: TRANSFER_ABI,
-      data: data as Hex,
-    });
-
-    if (!decodedData) {
-      return;
-    }
-
-    console.log(decodedData.args, to);
-
-    const [recipient, amount] = decodedData.args;
 
     setDecodedTx({
-      recipient: recipient,
-      tokenAddress: getAddress(to),
-      amount,
+      recipient: getAddress(to),
+      amount: parseUnits(amount, 18),
     });
-  }, [to, data, decimals]);
+  }, [to, amount]);
 
   if (!decodedTx) {
     return <div>Loading...</div>;
   }
 
-  const token = getTokenByAddress(decodedTx.tokenAddress);
+  const token = getTokenBySymbol("ETH");
 
   return (
     <>
@@ -98,7 +81,7 @@ export default function TokenTransferTxPage() {
           </div>
           <div className={"flex flex-col gap-5"}>
             <h1 className={"text-center w-fit font-subj mx-auto text-2xl"}>
-              Token Transfer Summary
+              ETH Transfer Summary
             </h1>
             <div className={"flex flex-col gap-3"}>
               <div className={"flex flex-col gap-1"}>
@@ -106,7 +89,7 @@ export default function TokenTransferTxPage() {
                 {token && (
                   <TokenRow
                     token={token}
-                    amount={formatUnits(decodedTx.amount, Number(decimals))}
+                    amount={formatUnits(decodedTx.amount, 18)}
                     className={"rounded-xl px-4 bg-red-200/60"}
                   />
                 )}
@@ -133,12 +116,10 @@ export default function TokenTransferTxPage() {
           </div>
 
           <Transaction
-            contracts={[
+            calls={[
               {
-                abi: TRANSFER_ABI,
-                address: decodedTx.tokenAddress,
-                functionName: "transfer",
-                args: [decodedTx.recipient, decodedTx.amount],
+                to: decodedTx.recipient,
+                value: decodedTx.amount,
               },
             ]}
           >

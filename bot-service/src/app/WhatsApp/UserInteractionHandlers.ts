@@ -27,6 +27,7 @@ import {
     GetBalanceAction,
     SendTokenToBeneficiaryAction,
 } from '@/app/WhatsApp/TextContexts/contextSchema';
+import { WhatsAppCtaUrlButtonMessage } from '@/app/WhatsApp/app.whatsapp.types';
 
 class UserInteractionHandlers {
     public static async handleFirstTimeUserInteraction(
@@ -224,7 +225,7 @@ class UserInteractionHandlers {
     ) {
         const tokenAddress = getTokenAddress(token, appConfig.APP_WEB3_ENVIRONMENT);
 
-        if (!tokenAddress) {
+        if (!tokenAddress && token !== 'ETH') {
             throw new Error(`Dev Error: Token ${token} not found in token list`);
         }
 
@@ -259,14 +260,10 @@ class UserInteractionHandlers {
             return;
         }
 
-        const tokenDecimals = await Web3Library.getTokenDecimals(publicClient, tokenAddress);
-
-        const encodedData = Web3Library.encodeTransferTokenFunctionCall(
-            Number(amount),
-            recipientAddress,
-            tokenDecimals
+        const signingToken = await UserManagementService.createUserSignInToken(
+            phoneNumberParams.userPhoneNumber,
+            userDisplayName
         );
-
         const transactionSummaryMessageText =
             this.getTransferToBeneficiaryTransactionSummaryMessage(
                 token,
@@ -276,19 +273,35 @@ class UserInteractionHandlers {
                 amount
             );
 
-        const signingToken = await UserManagementService.createUserSignInToken(
-            phoneNumberParams.userPhoneNumber,
-            userDisplayName
-        );
+        let message: WhatsAppCtaUrlButtonMessage;
 
-        const message = MessageGenerators.generateInteractiveCtaUrlButtonMessage({
-            recipient: phoneNumberParams.userPhoneNumber,
-            bodyText: transactionSummaryMessageText,
-            ctaUrl: `${appConfig.MINI_APP_URL}/token-transfer-tx?data=${encodedData}&to=${tokenAddress}&sit=${signingToken}&decimals=${tokenDecimals}`,
-            ctaText: 'Confirm Transaction',
-            headerText: 'Transaction Summary\n\n',
-            footerText: POWERED_BY_COINBASE_TEXT,
-        });
+        if (tokenAddress) {
+            const tokenDecimals = await Web3Library.getTokenDecimals(publicClient, tokenAddress);
+
+            const encodedData = Web3Library.encodeTransferTokenFunctionCall(
+                Number(amount),
+                recipientAddress,
+                tokenDecimals
+            );
+
+            message = MessageGenerators.generateInteractiveCtaUrlButtonMessage({
+                recipient: phoneNumberParams.userPhoneNumber,
+                bodyText: transactionSummaryMessageText,
+                ctaUrl: `${appConfig.MINI_APP_URL}/token-transfer-tx?data=${encodedData}&to=${tokenAddress}&sit=${signingToken}&decimals=${tokenDecimals}`,
+                ctaText: 'Confirm Transaction',
+                headerText: 'Transaction Summary\n\n',
+                footerText: POWERED_BY_COINBASE_TEXT,
+            });
+        } else {
+            message = MessageGenerators.generateInteractiveCtaUrlButtonMessage({
+                recipient: phoneNumberParams.userPhoneNumber,
+                bodyText: transactionSummaryMessageText,
+                ctaUrl: `${appConfig.MINI_APP_URL}/native-transfer-tx?to=${recipientAddress}&sit=${signingToken}&amount=${amount}`,
+                ctaText: 'Confirm Transaction',
+                headerText: 'Transaction Summary\n\n',
+                footerText: POWERED_BY_COINBASE_TEXT,
+            });
+        }
 
         await WhatsAppBotApi.sendWhatsappMessage(phoneNumberParams.businessPhoneNumberId, message);
     }
