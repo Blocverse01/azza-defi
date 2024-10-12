@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs4qq6l4rshpd1p6dtpg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "table_with_no_link",
+          "column": {
+            "pk": false,
+            "name": "name",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "default": "''",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs4qq6l4rshpd1p6dtpg",
+  "parent": "mig_cs4qq2a2go8te7ad561g",
+  "schema": "public",
+  "startedAt": "2024-10-11T22:56:27.272933Z"
+}

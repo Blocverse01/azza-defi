@@ -1,0 +1,22 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs4qvia2go8te7ad566g",
+    "operations": [
+      {
+        "alter_column": {
+          "up": "(SELECT CASE WHEN \"displayName\" IS NULL THEN '' ELSE \"displayName\" END)",
+          "down": "(SELECT CASE WHEN \"displayName\" IS NULL THEN '' ELSE \"displayName\" END)",
+          "table": "user_beneficiary",
+          "column": "displayName",
+          "nullable": false
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs4qvia2go8te7ad566g",
+  "parent": "mig_cs4qrgl4rshpd1p6dtrg",
+  "schema": "public",
+  "startedAt": "2024-10-11T23:07:54.774125Z"
+}

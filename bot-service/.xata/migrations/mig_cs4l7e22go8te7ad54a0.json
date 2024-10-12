@@ -1,0 +1,26 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs4l7e22go8te7ad54a0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "user_beneficiaries",
+          "column": {
+            "pk": false,
+            "name": "walletAddress",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs4l7e22go8te7ad54a0",
+  "parent": "mig_cs4l75d4rshpd1p6dr7g",
+  "schema": "public",
+  "startedAt": "2024-10-11T16:35:04.667354Z"
+}

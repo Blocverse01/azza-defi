@@ -188,7 +188,7 @@
       <workItem from="1728638415354" duration="2501000" />
       <workItem from="1728642657712" duration="34149000" />
       <workItem from="1728693246179" duration="9856000" />
-      <workItem from="1728729465105" duration="4284000" />
+      <workItem from="1728729465105" duration="4790000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -302,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727884765929</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="switch to using onchain kit, easier (than I expected) to set up btw 😄">
+      <option name="closed" value="true" />
+      <created>1728735165219</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735165220</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +326,8 @@
     <MESSAGE value="debug webhook receipt" />
     <MESSAGE value="debug cors issue" />
     <MESSAGE value="use correct API endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="use correct API endpoint" />
+    <MESSAGE value="switch to using onchain kit, easier (than I expected) to set up btw " />
+    <option name="LAST_COMMIT_MESSAGE" value="switch to using onchain kit, easier (than I expected) to set up btw " />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs4qiiq2go8te7ad55vg",
+    "operations": [
+      {
+        "rename_table": {
+          "to": "beneficiary",
+          "from": "user_beneficiary"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs4qiiq2go8te7ad55vg",
+  "parent": "mig_cs4qft54rshpd1p6dtf0",
+  "schema": "public",
+  "startedAt": "2024-10-11T22:40:11.794687Z"
+}

@@ -1,0 +1,26 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cru23h86plqg2em45jug",
+    "operations": [
+      {
+        "add_column": {
+          "table": "user",
+          "column": {
+            "pk": false,
+            "name": "signingToken",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cru23h86plqg2em45jug",
+  "parent": "mig_crtsal06plqg2em455f0",
+  "schema": "public",
+  "startedAt": "2024-10-01T16:22:30.300666Z"
+}
