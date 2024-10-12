@@ -8,8 +8,6 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
-    PAYMASTER_SERVICE_URL_SEPOLIA: z.string(),
-    PAYMASTER_SERVICE_URL: z.string(),
   },
 
   /**
@@ -30,8 +28,6 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
-    PAYMASTER_SERVICE_URL_SEPOLIA: process.env.PAYMASTER_SERVICE_URL_SEPOLIA,
-    PAYMASTER_SERVICE_URL: process.env.PAYMASTER_SERVICE_URL,
     NEXT_PUBLIC_ONCHAINKIT_API_KEY: process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY,
     NEXT_PUBLIC_AZZA_DEFI_API_URL: process.env.NEXT_PUBLIC_AZZA_DEFI_API_URL,
   },
