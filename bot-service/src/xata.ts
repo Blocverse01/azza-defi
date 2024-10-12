@@ -64,35 +64,102 @@ const tables = [
             },
         ],
     },
+    {
+        name: 'user_beneficiary',
+        columns: [
+            {
+                name: 'baseName',
+                type: 'text',
+                notNull: false,
+                unique: false,
+                defaultValue: null,
+            },
+            {
+                name: 'displayName',
+                type: 'text',
+                notNull: true,
+                unique: false,
+                defaultValue: null,
+            },
+            {
+                name: 'user',
+                type: 'link',
+                link: { table: 'user' },
+                notNull: false,
+                unique: false,
+                defaultValue: null,
+            },
+            {
+                name: 'walletAddress',
+                type: 'text',
+                notNull: false,
+                unique: false,
+                defaultValue: null,
+            },
+            {
+                name: 'xata_createdat',
+                type: 'datetime',
+                notNull: true,
+                unique: false,
+                defaultValue: 'now()',
+            },
+            {
+                name: 'xata_id',
+                type: 'text',
+                notNull: true,
+                unique: true,
+                defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+            },
+            {
+                name: 'xata_updatedat',
+                type: 'datetime',
+                notNull: true,
+                unique: false,
+                defaultValue: 'now()',
+            },
+            {
+                name: 'xata_version',
+                type: 'int',
+                notNull: true,
+                unique: false,
+                defaultValue: '0',
+            },
+        ],
+    },
 ] as const;
 
 export type SchemaTables = typeof tables;
 export type InferredTypes = SchemaInference<SchemaTables>;
 
-export type User = InferredTypes['user'];
+export type User = InferredTypes["user"];
 export type UserRecord = User & XataRecord;
 
+export type UserBeneficiary = InferredTypes["user_beneficiary"];
+export type UserBeneficiaryRecord = UserBeneficiary & XataRecord;
+
 export type DatabaseSchema = {
-    user: UserRecord;
+  user: UserRecord;
+  user_beneficiary: UserBeneficiaryRecord;
 };
 
 const DatabaseClient = buildClient();
 
 const defaultOptions = {
-    databaseURL: 'https://Blocverse-Development-es1pni.us-east-1.xata.sh/db/azza-defi',
+  databaseURL:
+    "https://Blocverse-Development-es1pni.us-east-1.xata.sh/db/azza-defi",
 };
 
 export class XataClient extends DatabaseClient<DatabaseSchema> {
-    constructor(options?: BaseClientOptions) {
-        super({ ...defaultOptions, ...options }, tables);
-    }
+  constructor(options?: BaseClientOptions) {
+    super({ ...defaultOptions, ...options }, tables);
+  }
 }
 
 let instance: XataClient | undefined = undefined;
 
 export const getXataClient = () => {
-    if (instance) return instance;
+  if (instance) return instance;
 
-    instance = new XataClient();
-    return instance;
+  instance = new XataClient();
+  return instance;
 };

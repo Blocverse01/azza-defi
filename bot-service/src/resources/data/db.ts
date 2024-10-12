@@ -17,3 +17,5 @@ export const getXataClient = (): XataClient => {
 const xata = getXataClient();
 
 export const userRepository = xata.db.user;
+export const userBeneficiaryRepository = xata.db.user_beneficiary;
+export const xataSearchClient = xata.search;

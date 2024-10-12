@@ -1,7 +1,9 @@
-import { userRepository } from '@/resources/data/db';
+import { userBeneficiaryRepository, userRepository, xataSearchClient } from '@/resources/data/db';
 import { decrypt, encrypt, generateRandomHash } from '@/utils/encryption';
 import { SIGNING_TOKEN_LENGTH } from '@/constants/numbers';
 import env from '@/constants/env';
+import { isAddress } from 'viem';
+import { User } from '@/xata';
 
 class UserManagementService {
     private static readonly USER_IDENTITY_MASK_KEY = env.USER_IDENTITY_MASK_KEY;
@@ -107,6 +109,68 @@ class UserManagementService {
         return await targetUser.update({
             smartWalletAddress,
         });
+    }
+
+    public static async searchUserBeneficiariesByName(user: User, name: string, useFuzzy: boolean) {
+        if (useFuzzy) {
+            const results = await xataSearchClient.all(name, {
+                tables: [
+                    {
+                        table: 'user_beneficiary',
+                        target: ['displayName'],
+                        filter: { user: user.id },
+                    },
+                ],
+                fuzziness: 1,
+            });
+
+            return results?.records.map((record) => record.record);
+        }
+
+        return await userBeneficiaryRepository
+            .filter({
+                'user.phoneNumber': user.phoneNumber,
+                displayName: { $iContains: name },
+            })
+            .getMany();
+    }
+
+    public static async createUserBeneficiary(
+        user: User,
+        params: {
+            displayName: string;
+            addressOrBaseName: string;
+        }
+    ) {
+        const existingBeneficiary = await userBeneficiaryRepository
+            .filter({
+                'user.phoneNumber': user.phoneNumber,
+                $any: {
+                    walletAddress: params.addressOrBaseName,
+                    baseName: params.addressOrBaseName,
+                },
+            })
+            .getFirst();
+
+        if (existingBeneficiary) {
+            return {
+                beneficiary: existingBeneficiary,
+                isExisting: true,
+            };
+        }
+
+        const recipientIdentityKey = isAddress(params.addressOrBaseName)
+            ? ('walletAddress' as const)
+            : ('baseName' as const);
+
+        return {
+            beneficiary: await userBeneficiaryRepository.create({
+                user,
+                displayName: params.displayName,
+                [recipientIdentityKey]: params.addressOrBaseName,
+            }),
+            isExisting: false,
+        };
     }
 }
 
