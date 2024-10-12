@@ -5,46 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/evm.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/tokens.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/viem/clients.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/json-formatting.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/number-formatting.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/constants/appConfig.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/token-transfer-tx.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/resources/viem/clients.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/wagmi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/abis/erc-20.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/.xata/migrations/.ledger" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/.ledger" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/.xata/version/compatibility.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/.xata/version/compatibility.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/eslint.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserManagementService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserManagementService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/contextSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/contextSchema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppBotApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppBotApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/env.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/resources/abis/erc-20.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/resources/abis/erc-20.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/resources/data/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/resources/data/db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/schemas/schemas.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/schemas/schemas.base.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/utils/prompt-parser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/utils/prompt-parser.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot-service/src/xata.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/xata.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/config/coinbaseSdk.setup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/AzzaDeFi/Web3Library.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +149,7 @@
       <workItem from="1728638415354" duration="2501000" />
       <workItem from="1728642657712" duration="34149000" />
       <workItem from="1728693246179" duration="9856000" />
-      <workItem from="1728729465105" duration="4790000" />
+      <workItem from="1728729465105" duration="5287000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -310,7 +271,31 @@
       <option name="project" value="LOCAL" />
       <updated>1728735165220</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add migration files">
+      <option name="closed" value="true" />
+      <created>1728735216850</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735216850</updated>
+    </task>
+    <task id="LOCAL-00017" summary="delete empty file">
+      <option name="closed" value="true" />
+      <created>1728735272531</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735272531</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Setup for basic wallet actions including:&#10;- adding beneficiaries&#10;- querying balances&#10;- transferring to a beneficiary">
+      <option name="closed" value="true" />
+      <created>1728735615177</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735615177</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +312,10 @@
     <MESSAGE value="debug cors issue" />
     <MESSAGE value="use correct API endpoint" />
     <MESSAGE value="switch to using onchain kit, easier (than I expected) to set up btw " />
-    <option name="LAST_COMMIT_MESSAGE" value="switch to using onchain kit, easier (than I expected) to set up btw " />
+    <MESSAGE value="add migration files" />
+    <MESSAGE value="delete empty file" />
+    <MESSAGE value="Setup for basic wallet actions including:&#10;- adding beneficiaries&#10;- querying balances&#10;- transferring to a beneficiary" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup for basic wallet actions including:&#10;- adding beneficiaries&#10;- querying balances&#10;- transferring to a beneficiary" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
