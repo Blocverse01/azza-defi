@@ -4,73 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cru23h86plqg2em45jug.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cru25ja2drskjnk891p0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l593ujno0fvdn3r4g.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l5s3ujno0fvdn3r5g.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l65jujno0fvdn3r6g.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l6j22go8te7ad5490.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l75d4rshpd1p6dr7g.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l7e22go8te7ad54a0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4l7pq2go8te7ad54b0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qbmd4rshpd1p6dte0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qc33ujno0fvdn3slg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qcf22go8te7ad55t0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qcka2go8te7ad55u0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qft54rshpd1p6dtf0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qiiq2go8te7ad55vg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qj054rshpd1p6dtjg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qkgd4rshpd1p6dtkg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4ql6l4rshpd1p6dtmg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qq2a2go8te7ad561g.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qq6l4rshpd1p6dtpg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qqdt4rshpd1p6dtqg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qrgl4rshpd1p6dtrg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/mig_cs4qvia2go8te7ad566g.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/AzzaDeFi/Web3Library.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/evm.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/tokens.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/resources/viem/clients.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/json-formatting.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot-service/src/utils/number-formatting.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/constants/appConfig.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/token-transfer-tx.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/resources/viem/clients.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/wagmi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/abis/erc-20.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/.xata/migrations/.ledger" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/.xata/migrations/.ledger" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/.xata/version/compatibility.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/.xata/version/compatibility.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/eslint.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserManagementService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserManagementService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/contextSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/contextSchema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppBotApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppBotApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/WhatsAppWebhookController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/env.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/resources/abis/erc-20.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/resources/abis/erc-20.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/resources/data/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/resources/data/db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/schemas/schemas.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/schemas/schemas.base.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/utils/prompt-parser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/utils/prompt-parser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/xata.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/xata.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/config/coinbaseSdk.setup.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/styles/globals.css" afterDir="false" />
-    </list>
+    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,7 +58,7 @@
     "Node.js.scratch_3.ts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#1 on Merging create-wallet",
+    "git-widget-placeholder": "#1 on create-wallet",
     "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/Users/joshuaavoaja/Code/azza-DeFi/resources",
     "node.js.detected.package.eslint": "true",
@@ -218,7 +152,7 @@
       <workItem from="1728638415354" duration="2501000" />
       <workItem from="1728642657712" duration="34149000" />
       <workItem from="1728693246179" duration="9856000" />
-      <workItem from="1728729465105" duration="7574000" />
+      <workItem from="1728729465105" duration="7874000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -388,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728735949420</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Merge branch 'main' into create-wallet&#10;&#10;# Conflicts:&#10;#&#9;mini-webapp/package.json&#10;#&#9;mini-webapp/pnpm-lock.yaml&#10;#&#9;mini-webapp/src/pages/index.tsx">
+      <option name="closed" value="true" />
+      <created>1728738862441</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1728738862441</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +353,9 @@
     <MESSAGE value="code formatting" />
     <MESSAGE value="add editor file" />
     <MESSAGE value="update lockfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="update lockfile" />
+    <MESSAGE value="Merge branch 'main' into create-wallet&#10;&#10;# Conflicts:&#10;#&#9;mini-webapp/package.json&#10;#&#9;mini-webapp/pnpm-lock.yaml&#10;#&#9;mini-webapp/src/pages/index.tsx&#10;" />
+    <MESSAGE value="Merge branch 'main' into create-wallet&#10;&#10;# Conflicts:&#10;#&#9;mini-webapp/package.json&#10;#&#9;mini-webapp/pnpm-lock.yaml&#10;#&#9;mini-webapp/src/pages/index.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'main' into create-wallet&#10;&#10;# Conflicts:&#10;#&#9;mini-webapp/package.json&#10;#&#9;mini-webapp/pnpm-lock.yaml&#10;#&#9;mini-webapp/src/pages/index.tsx" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
