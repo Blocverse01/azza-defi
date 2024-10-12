@@ -64,6 +64,68 @@ const tables = [
             },
         ],
     },
+    {
+        name: 'user_beneficiary',
+        columns: [
+            {
+                name: 'baseName',
+                type: 'text',
+                notNull: false,
+                unique: false,
+                defaultValue: null,
+            },
+            {
+                name: 'displayName',
+                type: 'text',
+                notNull: true,
+                unique: false,
+                defaultValue: null,
+            },
+            {
+                name: 'user',
+                type: 'link',
+                link: { table: 'user' },
+                notNull: false,
+                unique: false,
+                defaultValue: null,
+            },
+            {
+                name: 'walletAddress',
+                type: 'text',
+                notNull: false,
+                unique: false,
+                defaultValue: null,
+            },
+            {
+                name: 'xata_createdat',
+                type: 'datetime',
+                notNull: true,
+                unique: false,
+                defaultValue: 'now()',
+            },
+            {
+                name: 'xata_id',
+                type: 'text',
+                notNull: true,
+                unique: true,
+                defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+            },
+            {
+                name: 'xata_updatedat',
+                type: 'datetime',
+                notNull: true,
+                unique: false,
+                defaultValue: 'now()',
+            },
+            {
+                name: 'xata_version',
+                type: 'int',
+                notNull: true,
+                unique: false,
+                defaultValue: '0',
+            },
+        ],
+    },
 ] as const;
 
 export type SchemaTables = typeof tables;
@@ -72,8 +134,12 @@ export type InferredTypes = SchemaInference<SchemaTables>;
 export type User = InferredTypes['user'];
 export type UserRecord = User & XataRecord;
 
+export type UserBeneficiary = InferredTypes['user_beneficiary'];
+export type UserBeneficiaryRecord = UserBeneficiary & XataRecord;
+
 export type DatabaseSchema = {
     user: UserRecord;
+    user_beneficiary: UserBeneficiaryRecord;
 };
 
 const DatabaseClient = buildClient();

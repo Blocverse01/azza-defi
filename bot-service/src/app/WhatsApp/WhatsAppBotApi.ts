@@ -23,11 +23,7 @@ class WhatsAppBotApi {
 
         try {
             const requestOptions = this.getRequestConfig();
-            const response = await axios.post(
-                `${this.CLOUD_API_URL}/${endpoint}`,
-                data,
-                requestOptions
-            );
+            return await axios.post(`${this.CLOUD_API_URL}/${endpoint}`, data, requestOptions);
         } catch (error) {
             await logServiceError(error, 'Error sending message');
             throw error;

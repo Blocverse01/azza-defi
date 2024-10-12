@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs4qkgd4rshpd1p6dtkg",
+    "operations": [
+      {
+        "drop_column": {
+          "table": "user_beneficiary",
+          "column": "user"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs4qkgd4rshpd1p6dtkg",
+  "parent": "mig_cs4qj054rshpd1p6dtjg",
+  "schema": "public",
+  "startedAt": "2024-10-11T22:44:17.823655Z"
+}

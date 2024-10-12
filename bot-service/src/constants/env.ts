@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import 'dotenv/config';
+import { MINI_WEB_APP_LIVE_URL } from '@/constants/strings';
 
 const notEmptyStringSchema = (variableName: string) =>
     z.string().refine((val) => val.trim() !== '', {
@@ -18,6 +19,7 @@ const envSchema = z.object({
     XATA_API_KEY: notEmptyStringSchema('XATA_API_KEY'),
     USER_IDENTITY_MASK_KEY: notEmptyStringSchema('USER_IDENTITY_MASK_KEY'),
     WA_BUSINESS_NUMBER_ID: notEmptyStringSchema('WA_BUSINESS_NUMBER_ID'),
+    MINI_WEB_APP_URL: z.string().default(MINI_WEB_APP_LIVE_URL),
 });
 
 const env = envSchema.parse(process.env);

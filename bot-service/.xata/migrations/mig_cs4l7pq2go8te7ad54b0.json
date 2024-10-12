@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs4l7pq2go8te7ad54b0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "user_beneficiaries",
+          "column": {
+            "pk": false,
+            "name": "displayName",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "default": "''",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs4l7pq2go8te7ad54b0",
+  "parent": "mig_cs4l7e22go8te7ad54a0",
+  "schema": "public",
+  "startedAt": "2024-10-11T16:35:51.931219Z"
+}

@@ -1,0 +1,20 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cru25ja2drskjnk891p0",
+    "operations": [
+      {
+        "alter_column": {
+          "name": "signInToken",
+          "table": "user",
+          "column": "signingToken"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cru25ja2drskjnk891p0",
+  "parent": "mig_cru23h86plqg2em45jug",
+  "schema": "public",
+  "startedAt": "2024-10-01T16:26:53.929535Z"
+}

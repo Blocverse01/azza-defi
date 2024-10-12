@@ -1,72 +1,86 @@
 import Head from "next/head";
-import { CoinbaseWalletSDK } from "@coinbase/wallet-sdk";
-import { APP_NAME } from "~/constants/strings";
-import { useRouter } from "next/router";
-import { saveUserWalletAddress } from "~/data/adapters/userAdapter";
-import { Info, LogoSm, WhatsappIcon3 } from "../assets";
-import React from "react";
+import { Info, LogoSm, WhatsappIcon3 } from "~/assets";
+import React, { useCallback } from "react";
 import Logo from "../assets/logo.svg";
 import Image from "next/image";
-import { subjectivityFont } from "../font/setup";
+
 import Faq from "../components/Faq";
+
+import { useRouter } from "next/router";
+import { saveUserWalletAddress } from "~/data/adapters/userAdapter";
+import { useAccount, useConnect } from "wagmi";
+import { type Address } from "viem";
 
 export default function Home() {
   const router = useRouter();
 
   const signInToken = router.query.sit as string;
 
-  async function connectAccount(signInToken: string) {
+  const { connectors, connectAsync } = useConnect();
+  const signedInAccount = useAccount();
+
+  async function syncWalletWithSignInToken(
+    signInToken: string,
+    walletAddress: string,
+  ) {
     if (!signInToken) {
       alert("Invalid sign in token");
+      return;
     }
 
-    const coinbaseWalletSDK = new CoinbaseWalletSDK({
-      appName: APP_NAME as string,
-      appChainIds: [8453],
-    });
+    const response = await saveUserWalletAddress(signInToken, walletAddress);
 
-    const provider = coinbaseWalletSDK.makeWeb3Provider({
-      options: "smartWalletOnly",
-    });
-    const addresses = (await provider.request({
-      method: "eth_requestAccounts",
-    })) as string[];
+    if (response.saved) {
+      console.log("Wallet address saved");
+    } else {
+      console.log("Failed to save wallet address");
+    }
 
-    const indexZeroAddress = addresses[0];
+    alert(response.message);
+  }
 
-    if (indexZeroAddress) {
-      const response = await saveUserWalletAddress(
-        signInToken,
-        indexZeroAddress
-      );
+  const createWallet = useCallback(async () => {
+    const coinbaseWalletConnector = connectors.find(
+      (connector) => connector.id === "coinbaseWalletSDK",
+    );
 
-      if (response.saved) {
-        console.log("Wallet address saved");
+    if (!signInToken) {
+      alert("You need a sign in token to connect your wallet");
+      return;
+    }
+
+    let walletAddress: Address;
+
+    if (coinbaseWalletConnector) {
+      if (
+        signedInAccount?.address &&
+        signedInAccount.connector?.uid === coinbaseWalletConnector.uid
+      ) {
+        walletAddress = signedInAccount.address;
       } else {
-        console.log("Failed to save wallet address");
+        const data = await connectAsync({ connector: coinbaseWalletConnector });
+        walletAddress = data.accounts[0];
       }
 
-      alert(response.message);
+      await syncWalletWithSignInToken(signInToken, walletAddress);
     }
-  }
+  }, [connectors, connectAsync, signInToken, signedInAccount]);
 
   return (
     <>
       <Head>
         <title>Azza DeFi</title>
-        <meta name='description' content='Azza DeFi' />
-        <link rel='icon' href='/favicon.ico' />
+        <meta name="description" content="Azza DeFi" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div
-        className={`${subjectivityFont.variable} font-inter bg-az-primary-green`}
-      >
+      <div className={`bg-az-primary-green`}>
         <section
           className={
             "relative  hero-background mt text-white py-4 px-6 md:px-[120px] "
           }
         >
-          <Image src={Logo as string} alt='logo' />
+          <Image src={Logo as string} alt="logo" />
           <div
             className={
               "flex relative z-10 mt-[43px] flex-col max-w-[845px] mx-auto space-y-[32px] md:space-y-[44px]"
@@ -77,7 +91,7 @@ export default function Home() {
               <p>{">>>>>>>>>>>>>"}</p>
               <LogoSm />
             </div>
-            <p className='font-subj leading-[28px] md:leading-[54px] uppercase text-center text-[32px] md:text-[56px]'>
+            <p className="font-subj leading-[28px] md:leading-[54px] uppercase text-center text-[32px] md:text-[56px]">
               You&apos;re about to{" "}
               <span className={" text-az-primary-yellow "}>
                 create a wallet
@@ -97,7 +111,7 @@ export default function Home() {
               className={
                 "bg-white py-[10px] px-[16px] rounded-[10px] text-black w-fit  mx-auto"
               }
-              onClick={() => connectAccount(signInToken)}
+              onClick={() => createWallet()}
             >
               Create a Wallet
             </button>

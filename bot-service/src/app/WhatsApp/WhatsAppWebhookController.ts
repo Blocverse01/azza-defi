@@ -164,7 +164,8 @@ class WhatsAppWebhookController {
 
             // Handle text messages
             const contextOrMessageResponse = await AITextContextParser.deriveContextFromPrompt(
-                text.body
+                text.body,
+                displayName
             );
 
             if (typeof contextOrMessageResponse === 'string') {
@@ -179,8 +180,14 @@ class WhatsAppWebhookController {
                 return;
             }
 
+            console.log(contextOrMessageResponse);
+
             // Handle context
-            await TextContextActionHandler.handleAction(contextOrMessageResponse, phoneParams);
+            await TextContextActionHandler.handleAction(
+                user,
+                contextOrMessageResponse,
+                phoneParams
+            );
         }
     }
 }
