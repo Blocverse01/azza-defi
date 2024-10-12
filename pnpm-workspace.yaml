@@ -1,0 +1,4 @@
+packages:
+  - 'mini-webapp'
+  - 'bot-service'
+  - 'resources'

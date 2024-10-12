@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/native-transfer-tx.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/resources/tokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" />
+    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="use pnpm">
+      <change afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/assets/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/assets/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/data/adapters/userAdapter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/data/adapters/userAdapter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/token-transfer-tx.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/token-transfer-tx.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +24,7 @@
       <list>
         <option value="HTML File" />
         <option value="TypeScript File" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -101,11 +99,11 @@
       <recent name="$PROJECT_DIR$/bot-service/src/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/mini-webapp/src/data/base" />
       <recent name="$PROJECT_DIR$/bot-service/src/app/WhatsApp" />
       <recent name="$PROJECT_DIR$/bot-service/src/app" />
       <recent name="$PROJECT_DIR$/mini-webapp/src" />
-      <recent name="$PROJECT_DIR$/bot-service" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -165,7 +163,7 @@
       <workItem from="1728638415354" duration="2501000" />
       <workItem from="1728642657712" duration="34149000" />
       <workItem from="1728693246179" duration="9856000" />
-      <workItem from="1728729465105" duration="16680000" />
+      <workItem from="1728729465105" duration="19315000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -351,7 +349,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728738994139</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="create flow bridges for erc20 and native token transfers">
+      <option name="closed" value="true" />
+      <created>1728748498359</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1728748498360</updated>
+    </task>
+    <task id="LOCAL-00025" summary="remove unused env vars">
+      <option name="closed" value="true" />
+      <created>1728748603197</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1728748603198</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +390,9 @@
     <MESSAGE value="Merge branch 'main' into create-wallet&#10;&#10;# Conflicts:&#10;#&#9;mini-webapp/package.json&#10;#&#9;mini-webapp/pnpm-lock.yaml&#10;#&#9;mini-webapp/src/pages/index.tsx&#10;" />
     <MESSAGE value="Merge branch 'main' into create-wallet&#10;&#10;# Conflicts:&#10;#&#9;mini-webapp/package.json&#10;#&#9;mini-webapp/pnpm-lock.yaml&#10;#&#9;mini-webapp/src/pages/index.tsx" />
     <MESSAGE value="add editor file" />
-    <option name="LAST_COMMIT_MESSAGE" value="add editor file" />
+    <MESSAGE value="create flow bridges for erc20 and native token transfers" />
+    <MESSAGE value="remove unused env vars" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unused env vars" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

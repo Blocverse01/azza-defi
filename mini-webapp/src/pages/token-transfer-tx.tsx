@@ -7,7 +7,7 @@ import {
   getAddress,
   type Hex,
 } from "viem";
-import { TRANSFER_ABI } from "../../../resources/abis/erc-20";
+import { TRANSFER_ABI } from "resources/abis/erc-20";
 import {
   Transaction,
   TransactionButton,
