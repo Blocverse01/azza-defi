@@ -131,35 +131,34 @@ const tables = [
 export type SchemaTables = typeof tables;
 export type InferredTypes = SchemaInference<SchemaTables>;
 
-export type User = InferredTypes["user"];
+export type User = InferredTypes['user'];
 export type UserRecord = User & XataRecord;
 
-export type UserBeneficiary = InferredTypes["user_beneficiary"];
+export type UserBeneficiary = InferredTypes['user_beneficiary'];
 export type UserBeneficiaryRecord = UserBeneficiary & XataRecord;
 
 export type DatabaseSchema = {
-  user: UserRecord;
-  user_beneficiary: UserBeneficiaryRecord;
+    user: UserRecord;
+    user_beneficiary: UserBeneficiaryRecord;
 };
 
 const DatabaseClient = buildClient();
 
 const defaultOptions = {
-  databaseURL:
-    "https://Blocverse-Development-es1pni.us-east-1.xata.sh/db/azza-defi",
+    databaseURL: 'https://Blocverse-Development-es1pni.us-east-1.xata.sh/db/azza-defi',
 };
 
 export class XataClient extends DatabaseClient<DatabaseSchema> {
-  constructor(options?: BaseClientOptions) {
-    super({ ...defaultOptions, ...options }, tables);
-  }
+    constructor(options?: BaseClientOptions) {
+        super({ ...defaultOptions, ...options }, tables);
+    }
 }
 
 let instance: XataClient | undefined = undefined;
 
 export const getXataClient = () => {
-  if (instance) return instance;
+    if (instance) return instance;
 
-  instance = new XataClient();
-  return instance;
+    instance = new XataClient();
+    return instance;
 };
