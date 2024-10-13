@@ -22,9 +22,9 @@ class UserInfoTransportService {
 
         const decodedToken = UserManagementService.decodeSignInToken(signInToken);
 
-        // if (decodedToken.expiry < new Date()) {
-        //     throw new Error('Expired sign-in token');
-        // }
+        if (decodedToken.expiry < new Date()) {
+            throw new Error('Expired sign-in token');
+        }
 
         const networkConfig = getAppDefaultEvmConfig(network, appConfig.APP_WEB3_ENVIRONMENT);
         const nativeToken = networkConfig.viemChain.nativeCurrency;
