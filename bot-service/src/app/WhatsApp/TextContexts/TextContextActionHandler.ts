@@ -27,6 +27,14 @@ class TextContextActionHandler {
                     appConfig.APP_NETWORK
                 );
                 return true;
+            case 'transfer_from_wallet_to_address_or_base_name':
+                await UserInteractionHandlers.handleSendToBasenameOrAddressInteraction(
+                    whatsAppPhoneParams,
+                    user,
+                    action.params,
+                    appConfig.APP_NETWORK
+                );
+                return true;
             case 'request_for_wallet_address':
                 await UserInteractionHandlers.handleRequestForWalletAddressInteraction(
                     whatsAppPhoneParams,

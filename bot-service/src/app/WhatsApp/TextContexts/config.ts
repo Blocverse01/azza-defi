@@ -1,34 +1,33 @@
 import { PossibleActions } from '@/app/WhatsApp/TextContexts/contextSchema';
 import { SUPPORTED_TOKENS } from '@/schemas/schemas.base';
 
-export const WALLET_ACTION_RULES = ` 
-    1. If a valid action can be identified, your response **must** return only a **JSON object** containing the action and the filled parameters. **No other text or explanation should be included**. Any additional text is considered incorrect. (VERY IMPORTANT)
-    2. If an identified action is close to the user's request but not an exact match, provide a helpful error or ask for clarification, rejecting invalid formats (VERY IMPORTANT).
-    3. If no valid action is found or the request is unclear, ask for clarification or provide help based on the available actions, directing responses to the user, not the platform.
-    4. Respond concisely, engaging the user only if needed for clarification or additional information.
-    5. Max tokens allowed: 512. Provide very short responses to unrelated queries.
-    6. If no valid action is found or the parameters for a valid action are incomplete, you must omit the JSON object from your response. This is mandatory. Instead, provide clear examples using natural language, similar to those provided in the object. Failure to follow this rule will result in an incorrect response.
-    7. For actions with the token parameter, the supported tokens are ${SUPPORTED_TOKENS.join(', ')}, you should infer correctly from the user's request.
-    8. DO NOT include an object or JSON when asking for clarification or providing help. Only include the JSON object when a valid action is identified.
-    9. If the user isn't asking for a specific action, reply with an organised list of the actions with examples, concisely.
+export const WALLET_ACTION_RULES = `
+    1. If you identify a valid action, **only** return a **JSON object** with the action and its parameters. **No additional text** should be included. Any extra text will be incorrect.
+    2. If no specific action is requested, provide a concise, organized list of possible actions with brief examples.
+    3. If an action is similar to, but not exactly what the user requested, provide a clarification or reject invalid formats with a helpful error. 
+    4. If no valid action is identified or the request is unclear, ask for clarification or suggest actions based on the available options.
+    5. Keep responses concise. Engage only if clarification or additional information is needed.
+    6. Limit responses to **512 tokens**. Keep unrelated queries very brief.
+    7. If parameters are incomplete or invalid, omit the JSON object. Instead, respond in natural language with examples of the correct format.
+    8. For actions with token parameters, infer the token correctly from the user's request. Supported tokens are: ${SUPPORTED_TOKENS.join(', ')}.
+    9. **Only include JSON** if a valid action is identified. Do not return JSON when asking for clarification or providing help.
     
     Guidelines:             
-    Examples of correct responses (when an action is identified):
+    **Correct response (action identified):**
     Input: "Get me the balance of my tokens."
-    Correct Response:
+    Output:
     {
         "action": "get_balance",
         "params": { "token": "<token>" }
     } 
 
-    Incorrect Response (Do NOT return this):
+    **Incorrect responses:**
     - "Here is the response: { ... }"
-    - "The following action is identified: { ... }"
-    - Any additional text before or after the JSON object.
+    - Any explanation before or after the JSON object.
 
-    **Examples of valid EVM-based parameters:**
+    **EVM-based parameter examples:**
     - Wallet Address: "0x0B675A788539a8c98EF553a8FD904Cd7036f1Aee" (42 characters, starts with 0x)
-    - Base Name: "baseddevjosh.base.eth" (max 253 characters, alphanumeric, hyphen, and period)
+    - Base Name: "baseddevjosh.base.eth" (max 253 characters, alphanumeric, hyphen, period)
 `;
 
 export const POSSIBLE_ACTIONS: Array<
@@ -43,8 +42,8 @@ export const POSSIBLE_ACTIONS: Array<
             tokens: ['<token>', '<token>'],
         },
         explanation:
-            "Retrieve the balance of a wallet's token holdings. If no tokens are specified, return undefined.",
-        example: 'Get me the balance of my tokens.',
+            "Retrieve the wallet's token balance. If no token is specified, assume an error or incomplete request.",
+        example: 'Example: "Get me the balance of my tokens."',
     },
     {
         action: 'transfer_from_wallet_to_beneficiary',
@@ -53,14 +52,14 @@ export const POSSIBLE_ACTIONS: Array<
             amount: '<amount>',
             beneficiaryName: '<beneficiary_name>',
         },
-        explanation: 'Send a specified amount of a token to a beneficiary by name.',
-        example: 'Send 10 ETH to John.',
+        explanation: 'Transfer a specific amount of a token to a beneficiary by name.',
+        example: 'Example: "Send 10 ETH to John."',
     },
     {
         action: 'request_for_wallet_address',
         explanation:
-            'Request the wallet address of the user. If the user is asking to deposit tokens to or fund their wallet, this action should also be triggered.',
-        example: 'Can I get my wallet address?',
+            'Respond to a request for the wallet address. Look for variations asking for their wallet address.',
+        example: 'Example: "Can I get my wallet address?"',
     },
     {
         action: 'transfer_from_wallet_to_address_or_base_name',
@@ -69,10 +68,8 @@ export const POSSIBLE_ACTIONS: Array<
             token: '<token>',
             amount: '<amount>',
         },
-        explanation:
-            'Send a specified amount of a token to an address or base name. The address or base name can be a wallet address or ENS base name.',
-        example:
-            'Send 10 ETH to 0x0B675A788539a8c98EF553a8FD904Cd7036f1Aee. or Send 10 ETH to baseddevjosh.base.eth.',
+        explanation: 'Transfer tokens to a wallet address or base name (ENS).',
+        example: 'Example: "Send 10 ETH to 0x0B675A788539a8c98EF553a8FD904Cd7036f1Aee."',
     },
     {
         action: 'add_beneficiary',
@@ -80,13 +77,24 @@ export const POSSIBLE_ACTIONS: Array<
             name: '<name>',
             addressOrBaseName: '<address_or_base_name>',
         },
-        explanation: 'Add a beneficiary to the user wallet.',
+        explanation: 'Add a new beneficiary by name and address or base name.',
         example:
-            'Add John as a beneficiary, address 0x0B675A788539a8c98EF553a8FD904Cd7036f1Aee. or Name: John\n Base name: baseddevjosh.base.eth.',
+            'Example: "Add John as a beneficiary, address 0x0B675A788539a8c98EF553a8FD904Cd7036f1Aee."',
+    },
+    {
+        action: 'swap_tokens',
+        params: {
+            fromToken: '<from_token>',
+            toToken: '<to_token>',
+            amount: '<amount>',
+        },
+        explanation: 'Swap tokens from one to another.',
+        example: 'Example: "Swap 10 ETH to DAI."',
     },
 ];
 
-export const SYSTEM_PROMPT = 'You are an AI agent for a blockchain wallet service';
+export const SYSTEM_PROMPT =
+    'You are a resourceful AI agent for a blockchain wallet (i.e. you are a wallet bot assistant)';
 
 export const MODELS = {
     META_LLAMA_3_70B_INSTRUCT: 'meta/meta-llama-3-70b-instruct',
@@ -99,7 +107,7 @@ export const INPUT_CONFIG = {
     top_k: 50,
     top_p: 0.7,
     max_tokens: 512,
-    temperature: 0.4,
+    temperature: 0.5,
     length_penalty: 0.8,
     presence_penalty: 1,
 } as const;

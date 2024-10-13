@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Info, LogoSm, WhatsappIcon3 } from "~/assets";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import Logo from "../assets/logo.svg";
 import Image from "next/image";
 import Faq from "../components/Faq";
@@ -15,12 +15,17 @@ import {
   type GetServerSidePropsContext,
   type InferGetServerSidePropsType,
 } from "next";
+import WalletSyncedMessage from "~/components/WalletSyncedMessage";
+import { WHATSAPP_BOT_LINK } from "~/constants/strings";
 
 type PageProps = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 export default function Home({ userDisplayName, signInToken }: PageProps) {
   const { connectors, connectAsync } = useConnect();
   const signedInAccount = useAccount();
+
+  const [syncedWalletAddress, setSyncedWalletAddress] =
+    useState<Address | null>();
 
   async function syncWalletWithSignInToken(
     signInToken: string,
@@ -34,6 +39,7 @@ export default function Home({ userDisplayName, signInToken }: PageProps) {
     const response = await saveUserWalletAddress(signInToken, walletAddress);
 
     if (response.saved) {
+      setSyncedWalletAddress(walletAddress as Address);
       console.log("Wallet address saved");
     } else {
       console.log("Failed to save wallet address");
@@ -94,30 +100,42 @@ export default function Home({ userDisplayName, signInToken }: PageProps) {
               <p>{">>>>>>>>>>>>>"}</p>
               <LogoSm />
             </div>
-            <p className="font-subj leading-[28px] md:leading-[54px] uppercase text-center text-[32px] md:text-[56px]">
-              You&apos;re about to{" "}
-              <span className={" text-az-primary-yellow "}>
-                create a wallet
-              </span>{" "}
-              on <span className={" text-az-secondary-green-1 "}>Azza </span>
-            </p>
-            <p
-              className={
-                "max-w-[485px] md:text-[20px] leading-[24px] md:leading-[28px] text-center mx-auto"
-              }
-            >
-              Hi, {userDisplayName}. Kindly click on the button below to
-              continue creating a wallet on AZZA.
-            </p>
 
-            <button
-              className={
-                "bg-white py-[10px] px-[16px] rounded-[10px] text-black w-fit  mx-auto"
-              }
-              onClick={() => createWallet()}
-            >
-              Create a Wallet
-            </button>
+            {!syncedWalletAddress ? (
+              <>
+                <p className="font-subj leading-[28px] md:leading-[54px] uppercase text-center text-[32px] md:text-[56px]">
+                  You&apos;re about to{" "}
+                  <span className={" text-az-primary-yellow "}>
+                    create a wallet
+                  </span>{" "}
+                  on{" "}
+                  <span className={" text-az-secondary-green-1 "}>Azza </span>
+                </p>
+                <p
+                  className={
+                    "max-w-[485px] md:text-[20px] leading-[24px] md:leading-[28px] text-center mx-auto"
+                  }
+                >
+                  Hi, {userDisplayName}. Kindly click on the button below to
+                  continue creating a wallet on AZZA.
+                </p>
+
+                <button
+                  className={
+                    "bg-white py-[10px] px-[16px] rounded-[10px] text-black w-fit  mx-auto"
+                  }
+                  onClick={() => createWallet()}
+                >
+                  Create a Wallet
+                </button>
+              </>
+            ) : (
+              <WalletSyncedMessage
+                address={syncedWalletAddress}
+                displayName={userDisplayName ?? ""}
+                whatsappBotLink={WHATSAPP_BOT_LINK}
+              />
+            )}
           </div>
           <div
             className={

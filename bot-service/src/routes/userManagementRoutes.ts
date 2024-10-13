@@ -6,6 +6,8 @@ import { handleRequestError } from '@/utils/logging';
 import WhatsAppBotApi from '@/app/WhatsApp/WhatsAppBotApi';
 import env from '@/constants/env';
 import MessageGenerators from '@/app/WhatsApp/MessageGenerators';
+import UserInfoTransportService from '@/app/UserManagment/UserInfoTransportService';
+import { appConfig } from '@/constants/config';
 
 const userManagementRouter = express.Router();
 
@@ -66,6 +68,32 @@ userManagementRouter
 
             return res.status(200).json({
                 message: 'Wallet address updated successfully',
+            });
+        } catch (error) {
+            handleRequestError(error, res);
+        }
+    })
+    .post('/transport/token-transfers', async (req, res) => {
+        const { transactionHash, signingToken } = req.body as {
+            transactionHash: string;
+            signingToken: string;
+        };
+
+        if (!transactionHash || !signingToken) {
+            return res.status(BAD_REQUEST).json({
+                message: 'Missing required fields',
+            });
+        }
+
+        try {
+            await UserInfoTransportService.receiveSuccessfulTokenTransferTransactionHashResponse(
+                transactionHash,
+                signingToken,
+                appConfig.APP_NETWORK
+            );
+
+            return res.status(200).json({
+                message: 'Transaction info sent successfully',
             });
         } catch (error) {
             handleRequestError(error, res);

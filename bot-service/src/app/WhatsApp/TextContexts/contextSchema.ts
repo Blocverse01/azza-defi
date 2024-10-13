@@ -41,11 +41,23 @@ export const addBeneficiaryActionSchema = z.object({
     }),
 });
 
+export const swapTokensActionSchema = z.object({
+    action: z.literal('swap_tokens'),
+    params: z.object({
+        fromToken: z.string(),
+        toToken: z.string(),
+        amount: z.string().refine((data) => !isNaN(parseFloat(data)), {
+            message: 'Invalid amount',
+        }),
+    }),
+});
+
 export const possibleActionsSchema = getBalanceActionSchema
     .or(sendTokenToBeneficiaryActionSchema)
     .or(sendTokenToAddressOrBaseNameActionSchema)
     .or(requestForWalletAddressActionSchema)
-    .or(addBeneficiaryActionSchema);
+    .or(addBeneficiaryActionSchema)
+    .or(swapTokensActionSchema);
 
 export type PossibleActions = z.infer<typeof possibleActionsSchema>;
 export type GetBalanceAction = z.infer<typeof getBalanceActionSchema>;
@@ -55,3 +67,4 @@ export type SendTokenToAddressOrBaseNameAction = z.infer<
 >;
 export type RequestForWalletAddressAction = z.infer<typeof requestForWalletAddressActionSchema>;
 export type AddBeneficiaryAction = z.infer<typeof addBeneficiaryActionSchema>;
+export type SwapTokensAction = z.infer<typeof swapTokensActionSchema>;

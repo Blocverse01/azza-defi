@@ -1,6 +1,7 @@
 import {
   GET_USER_DISPLAY_NAME,
   SAVE_USER_WALLET_ADDRESS,
+  SEND_TRANSFER_TRANSACTION_HASH,
 } from "~/data/base/api-requests/azza-defi-requests";
 import { makeApiRequest } from "~/data/base/api-requests/api-request-maker";
 import { AZZA_DEFI_API_ENDPOINT } from "~/constants/strings";
@@ -51,5 +52,30 @@ export const saveUserWalletAddress = async (
   return {
     message: response.message,
     saved: rawResponse.ok,
+  };
+};
+
+export const sendTransferTransactionHash = async (
+  transactionHash: string,
+  signingToken: string,
+) => {
+  const body = SEND_TRANSFER_TRANSACTION_HASH.requestSchema.body.parse({
+    transactionHash,
+    signingToken,
+  });
+
+  const rawResponse = await makeApiRequest({
+    baseUrl: AZZA_DEFI_API_ENDPOINT,
+    requestConfig: SEND_TRANSFER_TRANSACTION_HASH,
+    input: { body },
+  });
+
+  const response = SEND_TRANSFER_TRANSACTION_HASH.responseJsonSchema.parse(
+    rawResponse.data,
+  );
+
+  return {
+    message: response.message,
+    sent: rawResponse.ok,
   };
 };

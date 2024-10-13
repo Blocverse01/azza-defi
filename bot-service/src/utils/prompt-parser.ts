@@ -13,10 +13,10 @@ export type PrepareOnchainQueryPromptParams = {
 };
 
 export function prepareOnchainQueryPrompt(params: PrepareOnchainQueryPromptParams): string {
-    const { prompt, rules, userDisplayName, possibleActions } = params;
+    const { prompt, rules, possibleActions } = params;
 
     const refinedPrompt = `
-        Based on the user's (${userDisplayName}) input: "${prompt}", determine the exact wallet action from these supported actions: ${JSON.stringify(possibleActions)}.
+        Based on the user's prompt: "${prompt}", determine the exact action from these supported actions: ${JSON.stringify(possibleActions)}.
         
         Rules:
         ${rules}

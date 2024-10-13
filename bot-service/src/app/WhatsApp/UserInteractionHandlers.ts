@@ -17,7 +17,7 @@ import WhatsAppBotApi from '@/app/WhatsApp/WhatsAppBotApi';
 import UserManagementService from '@/app/UserManagment/UserManagementService';
 import { User, UserBeneficiary } from '@/xata';
 import Web3Library from '@/app/AzzaDeFi/Web3Library';
-import { Address, getAddress, isAddress } from 'viem';
+import { Address, getAddress, parseUnits } from 'viem';
 import { getAppDefaultEvmConfig } from '@/resources/evm.config';
 import { getPublicClient } from '@/resources/viem/clients';
 import { getTokenAddress } from '@/resources/tokens';
@@ -25,9 +25,12 @@ import { prettifyNumber } from '@/utils/number-formatting';
 import {
     AddBeneficiaryAction,
     GetBalanceAction,
+    SendTokenToAddressOrBaseNameAction,
     SendTokenToBeneficiaryAction,
+    SwapTokensAction,
 } from '@/app/WhatsApp/TextContexts/contextSchema';
 import { WhatsAppCtaUrlButtonMessage } from '@/app/WhatsApp/app.whatsapp.types';
+import LiFiIntegrationLibrary from '@/app/LiFi/LiFiIntegrationLibrary';
 
 class UserInteractionHandlers {
     public static async handleFirstTimeUserInteraction(
@@ -42,7 +45,7 @@ class UserInteractionHandlers {
 
         const message = MessageGenerators.generateInteractiveCtaUrlButtonMessage({
             recipient: phoneNumberParams.userPhoneNumber,
-            bodyText: `Hello ${userDisplayName}, welcome to our ${appConfig.APP_NAME} bot!`,
+            bodyText: `Hello ${userDisplayName}, welcome to the ${appConfig.APP_NAME} bot!`,
             ctaUrl: `${miniAppUrl}?${SIGN_IN_TOKEN_URL_PARAM}=${signInToken}`,
             ctaText: CREATE_NEW_USER_WALLET_CTA_TEXT,
             headerText: 'Welcome',
@@ -62,7 +65,10 @@ class UserInteractionHandlers {
         const networkConfig = getAppDefaultEvmConfig(network, appConfig.APP_WEB3_ENVIRONMENT);
         const publicClient = getPublicClient(networkConfig.viemChain, networkConfig.rpcUrl);
 
-        const tokens = interactionParams.tokens ?? SUPPORTED_TOKENS;
+        const filteredTokens =
+            interactionParams.tokens?.filter((token) => token !== '<token>') ?? [];
+
+        const tokens = filteredTokens.length > 0 ? filteredTokens : SUPPORTED_TOKENS;
 
         await WhatsAppBotApi.sendWhatsappMessage(
             phoneNumberParams.businessPhoneNumberId,
@@ -78,6 +84,7 @@ class UserInteractionHandlers {
 
             if (token === 'ETH') {
                 const balance = await Web3Library.getNativeBalance(publicClient, walletAddress);
+
                 return [token, balance];
             }
 
@@ -205,9 +212,8 @@ class UserInteractionHandlers {
 
         const recipient = possibleBeneficiaries[0];
 
-        await this.sendTokenToBeneficiary(
+        await this.sendTokenToRecipient(
             phoneNumberParams,
-            user.displayName,
             recipient,
             tokenValidation.data,
             amount,
@@ -215,10 +221,40 @@ class UserInteractionHandlers {
         );
     }
 
-    public static async sendTokenToBeneficiary(
+    public static async handleSendToBasenameOrAddressInteraction(
         phoneNumberParams: PhoneNumberParams,
-        userDisplayName: string,
-        beneficiary: Omit<UserBeneficiary, 'user'>,
+        user: User,
+        interactionParams: SendTokenToAddressOrBaseNameAction['params'],
+        network: SupportedChain
+    ) {
+        const { addressOrBaseName, token, amount } = interactionParams;
+
+        const tokenValidation = supportedTokenSchema.safeParse(token.toUpperCase());
+
+        if (!tokenValidation.success) {
+            const message = MessageGenerators.generateTextMessage(
+                phoneNumberParams.userPhoneNumber,
+                `Token ${token} is not supported right now, supported tokens are: ${SUPPORTED_TOKENS.join(', ')}`
+            );
+            await WhatsAppBotApi.sendWhatsappMessage(
+                phoneNumberParams.businessPhoneNumberId,
+                message
+            );
+            return;
+        }
+
+        await this.sendTokenToRecipient(
+            phoneNumberParams,
+            addressOrBaseName,
+            tokenValidation.data,
+            amount,
+            network
+        );
+    }
+
+    public static async sendTokenToRecipient(
+        phoneNumberParams: PhoneNumberParams,
+        recipient: Omit<UserBeneficiary, 'user'> | string,
         token: SupportedToken,
         amount: string,
         network: SupportedChain
@@ -229,13 +265,27 @@ class UserInteractionHandlers {
             throw new Error(`Dev Error: Token ${token} not found in token list`);
         }
 
-        const networkConfig = getAppDefaultEvmConfig(network, appConfig.APP_WEB3_ENVIRONMENT);
+        const [networkConfig, mainnetNetworkConfig] = [
+            getAppDefaultEvmConfig(network, appConfig.APP_WEB3_ENVIRONMENT),
+            getAppDefaultEvmConfig(network, 'mainnet'),
+        ];
         const publicClient = getPublicClient(networkConfig.viemChain, networkConfig.rpcUrl);
+        const mainnetPublicClient = getPublicClient(
+            mainnetNetworkConfig.viemChain,
+            mainnetNetworkConfig.rpcUrl
+        );
 
-        if (!beneficiary.walletAddress && !beneficiary.baseName) {
+        const recipientAddress =
+            typeof recipient === 'string'
+                ? recipient
+                : (recipient.walletAddress ?? recipient.baseName);
+        const recipientDisplayName =
+            typeof recipient === 'string' ? undefined : recipient.displayName;
+
+        if (!recipientAddress) {
             const message = MessageGenerators.generateTextMessage(
                 phoneNumberParams.userPhoneNumber,
-                `Recipient does not have a wallet address or base name`
+                `Recipient should be a wallet address or base name`
             );
             await WhatsAppBotApi.sendWhatsappMessage(
                 phoneNumberParams.businessPhoneNumberId,
@@ -244,11 +294,11 @@ class UserInteractionHandlers {
             return;
         }
 
-        const recipientAddress = isAddress(beneficiary.walletAddress ?? '')
-            ? getAddress(beneficiary.walletAddress!)
-            : await Web3Library.resolveBaseNameToAddress(publicClient, beneficiary.baseName!);
+        const resolvedRecipientAddress = recipientAddress.endsWith('.base.eth')
+            ? await Web3Library.resolveBaseNameToAddress(mainnetPublicClient, recipientAddress!)
+            : getAddress(recipientAddress!); // Resolve base name with mainnet client
 
-        if (!recipientAddress) {
+        if (!resolvedRecipientAddress) {
             const message = MessageGenerators.generateTextMessage(
                 phoneNumberParams.userPhoneNumber,
                 `Recipient wallet address could not be resolved`
@@ -260,16 +310,14 @@ class UserInteractionHandlers {
             return;
         }
 
-        const signingToken = await UserManagementService.createUserSignInToken(
-            phoneNumberParams.userPhoneNumber,
-            userDisplayName
+        const signingToken = await UserManagementService.generateSignInToken(
+            phoneNumberParams.userPhoneNumber
         );
         const transactionSummaryMessageText =
             this.getTransferToBeneficiaryTransactionSummaryMessage(
                 token,
-                beneficiary.baseName ?? null,
-                beneficiary.walletAddress ?? null,
-                beneficiary.displayName,
+                resolvedRecipientAddress,
+                recipientDisplayName,
                 amount
             );
 
@@ -280,7 +328,7 @@ class UserInteractionHandlers {
 
             const encodedData = Web3Library.encodeTransferTokenFunctionCall(
                 Number(amount),
-                recipientAddress,
+                resolvedRecipientAddress,
                 tokenDecimals
             );
 
@@ -304,6 +352,69 @@ class UserInteractionHandlers {
         }
 
         await WhatsAppBotApi.sendWhatsappMessage(phoneNumberParams.businessPhoneNumberId, message);
+    }
+
+    public static async handleSwapTokensInteraction(
+        phoneNumberParams: PhoneNumberParams,
+        user: User,
+        interactionParams: SwapTokensAction['params'],
+        network: SupportedChain
+    ) {
+        if (!user.smartWalletAddress) {
+            throw new Error('User does not have a smart wallet address');
+        }
+
+        const { fromToken, toToken, amount } = interactionParams;
+
+        const fromTokenValidation = supportedTokenSchema.safeParse(fromToken.toUpperCase());
+        const toTokenValidation = supportedTokenSchema.safeParse(toToken.toUpperCase());
+
+        if (!fromTokenValidation.success || !toTokenValidation.success) {
+            const unsupportedTokens = [];
+            if (!fromTokenValidation.success) unsupportedTokens.push(fromToken);
+            if (!toTokenValidation.success) unsupportedTokens.push(toToken);
+            const message = MessageGenerators.generateTextMessage(
+                phoneNumberParams.userPhoneNumber,
+                `Token ${unsupportedTokens.join(' or ')} is not supported right now, supported tokens are: ${SUPPORTED_TOKENS.join(', ')}`
+            );
+            await WhatsAppBotApi.sendWhatsappMessage(
+                phoneNumberParams.businessPhoneNumberId,
+                message
+            );
+            return;
+        }
+
+        const fromTokenAddress = getTokenAddress(
+            fromTokenValidation.data,
+            appConfig.APP_WEB3_ENVIRONMENT
+        );
+        const toTokenAddress = getTokenAddress(
+            toTokenValidation.data,
+            appConfig.APP_WEB3_ENVIRONMENT
+        );
+
+        const networkConfig = getAppDefaultEvmConfig(network, appConfig.APP_WEB3_ENVIRONMENT);
+        const publicClient = Web3Library.getPublicClient(networkConfig);
+
+        if (!fromTokenAddress || !toTokenAddress) {
+            throw new Error(`Dev Error: Token ${fromToken} or ${toToken} not found in token list`);
+        }
+
+        const fromTokenDecimals = await Web3Library.getTokenDecimals(
+            publicClient,
+            fromTokenAddress
+        );
+
+        const quote = await LiFiIntegrationLibrary.getQuotes({
+            fromAmount: parseUnits(amount, fromTokenDecimals).toString(),
+            fromToken: fromTokenAddress,
+            fromChain: networkConfig.viemChain.id,
+            fromAddress: user.smartWalletAddress!,
+            toChain: networkConfig.viemChain.id,
+            toToken: toTokenAddress,
+        });
+
+        console.log(quote);
     }
 
     public static async handleAddBeneficiaryInteraction(
@@ -352,16 +463,14 @@ class UserInteractionHandlers {
 
     private static getTransferToBeneficiaryTransactionSummaryMessage(
         token: SupportedToken,
-        baseName: string | null,
-        walletAddress: string | null,
-        beneficiaryName: string,
+        recipient: string,
+        beneficiaryName: string | undefined,
         amount: string
     ) {
-        const recipient = baseName ?? walletAddress;
         return [
-            `⏩ _Send_ *_${token}_* to *_${beneficiaryName.trim()}_*\n`,
+            `⏩ _Send_ *_${token}_* ${beneficiaryName ? 'to *_' + beneficiaryName.trim() + '_*' : ''}\n`,
             `Amount: *${amount} ${token}*`,
-            `Recipient: *${recipient}* ✅`,
+            `Recipient: *${recipient}* ${beneficiaryName?.trim() ? '✅' : ''}`,
         ].join('\n');
     }
 
@@ -374,14 +483,14 @@ class UserInteractionHandlers {
             const balance = balances[token];
             if (balance === null)
                 return `${token} is not supported right now, supported tokens are: ${SUPPORTED_TOKENS.join(', ')}`;
-            return `💰Your ${token} balance is: *${prettifyNumber(balance)} ${token}*`;
+            return `💰Your ${token} balance is: *${prettifyNumber(balance, 6)} ${token}*`;
         }
 
         const supportedTokens = tokens.filter((token) => balances[token] !== null);
         const unsupportedTokens = tokens.filter((token) => balances[token] === null);
 
         const supportedTokensBalances = supportedTokens.map(
-            (token) => `${token}: *${prettifyNumber(balances[token]!)} ${token}*`
+            (token) => `${token}: *${prettifyNumber(balances[token]!, 6)} ${token}*`
         );
         const unsupportedTokensMessage =
             unsupportedTokens.length > 0

@@ -20,6 +20,12 @@ const envSchema = z.object({
     USER_IDENTITY_MASK_KEY: notEmptyStringSchema('USER_IDENTITY_MASK_KEY'),
     WA_BUSINESS_NUMBER_ID: notEmptyStringSchema('WA_BUSINESS_NUMBER_ID'),
     MINI_WEB_APP_URL: z.string().default(MINI_WEB_APP_LIVE_URL),
+
+    // Notify Signing Keys
+    ALCHEMY_NOTIFY_FORWARDER_AUTH_TOKEN: notEmptyStringSchema('ALCHEMY_AUTH_TOKEN'),
+    ALCHEMY_NOTIFY_FORWARDER_BASE_SIGNING_KEY: notEmptyStringSchema(
+        'ALCHEMY_NOTIFY_BASE_SIGNING_KEY'
+    ),
 });
 
 const env = envSchema.parse(process.env);

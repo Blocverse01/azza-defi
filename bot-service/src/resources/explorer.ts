@@ -1,8 +1,8 @@
-import { SupportedChain, Web3Environment } from '@/schemas/schemas.base';
+import { SupportedChain, Url, Web3Environment } from '@/schemas/schemas.base';
 
 const FALL_BACK_EXPLORER_URLS: {
     [key in SupportedChain]: {
-        [key in Web3Environment]: string;
+        [key in Web3Environment]: Url;
     };
 } = {
     Base: {
@@ -18,5 +18,5 @@ export const getTransactionExplorerUrl = (
 ) => {
     const explorerUrl = FALL_BACK_EXPLORER_URLS[chain][environment];
 
-    return `${explorerUrl}/tx/${txHash}`;
+    return `${explorerUrl}/tx/${txHash}` as Url;
 };

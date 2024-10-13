@@ -1,14 +1,24 @@
-import express from 'express';
+import express, { type Request } from 'express';
 import { NOT_FOUND, OK } from '@/constants/status-codes';
 import env from '@/constants/env';
 import logger from '@/resources/logger';
 import apiRoutes from '@/routes';
 import cors from 'cors';
 import corsOptions from '@/cors/corsOptions';
+import { addAlchemyContextToRequest } from '@/app/AlchemyNotify/webhookUtils';
 
 const app = express();
 
-app.use(express.json());
+// middleware for capturing raw body
+app.use(
+    express.json({
+        limit: '20mb',
+        verify: (req: Request, res, buf, encoding: BufferEncoding) => {
+            req.rawBody = buf.toString();
+            addAlchemyContextToRequest(req, res, buf, encoding);
+        },
+    })
+);
 app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 

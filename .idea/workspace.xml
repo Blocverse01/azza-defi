@@ -4,14 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="use pnpm">
-      <change afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/package.json" afterDir="false" />
+    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="use pnpm workspace">
+      <change afterPath="$PROJECT_DIR$/bot-service/src/@types/express/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/AlchemyNotify/AlchemyNotifyController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/AlchemyNotify/AlchemyNotifyService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/AlchemyNotify/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/AlchemyNotify/endpoints.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/AlchemyNotify/webhookUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/AzzaDeFi/app.azza-defi.schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserInfoTransportService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot-service/src/routes/alchemyNotifyRoutes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/assets/wallet-created-image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini-webapp/src/components/WalletSyncedMessage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/pnpm-lock.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/pnpm-lock.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/AzzaDeFi/Web3Library.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/AzzaDeFi/Web3Library.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserManagementService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserManagementService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/contextSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/contextSchema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/env.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/resources/explorer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/resources/explorer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/routes/userManagementRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/routes/userManagementRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/schemas/schemas.base.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/schemas/schemas.base.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/utils/prompt-parser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/utils/prompt-parser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-webapp/src/data/adapters/userAdapter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/data/adapters/userAdapter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/azza-defi-requests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/data/base/api-requests/azza-defi-requests.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/native-transfer-tx.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/native-transfer-tx.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/token-transfer-tx.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/token-transfer-tx.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +53,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="TypeScript File" />
         <option value="package.json" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -66,10 +96,11 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "Node.js.eslint.config.mjs.executor": "Run",
     "Node.js.scratch_3.ts.executor": "Run",
+    "Node.js.scratch_5.ts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "/Users/joshuaavoaja/Code/azza-DeFi/resources",
+    "last_opened_file_path": "/Users/joshuaavoaja/Code/azza-DeFi/mini-webapp/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -80,7 +111,7 @@
     "npm.dev.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "/Users/joshuaavoaja/Code/azza-DeFi/bot-service/node_modules/prettier",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "actions.on.save",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "/Users/joshuaavoaja/Code/azza-DeFi/mini-webapp/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   },
@@ -92,25 +123,42 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources" />
-      <recent name="$PROJECT_DIR$/mini-webapp/src/data/api-requests" />
+      <recent name="$PROJECT_DIR$/mini-webapp/public" />
       <recent name="$PROJECT_DIR$/bot-service/src/routes" />
-      <recent name="$PROJECT_DIR$/bot-service/src/utils" />
+      <recent name="$PROJECT_DIR$/bot-service/src" />
       <recent name="$PROJECT_DIR$/bot-service/src/app" />
+      <recent name="$PROJECT_DIR$/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$/mini-webapp/src/data/base" />
       <recent name="$PROJECT_DIR$/bot-service/src/app/WhatsApp" />
       <recent name="$PROJECT_DIR$/bot-service/src/app" />
-      <recent name="$PROJECT_DIR$/mini-webapp/src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Node.js.scratch_5.ts">
     <configuration name="eslint.config.mjs" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/eslint.config.mjs" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="scratch_3.ts" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$APPLICATION_CONFIG_DIR$/scratches/scratch_3.ts" typescript-loader="bundled" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_5.ts" type="NodeJSConfigurationType" path-to-node="$USER_HOME$/.bun/bin/bun" nameIsGenerated="true" path-to-js-file="$APPLICATION_CONFIG_DIR$/scratches/scratch_5.ts" working-dir="$PROJECT_DIR$">
+      <envs>
+        <env name="ALCHEMY_NOTIFY_FORWARDER_AUTH_TOKEN" value="UJGoa8qQuHSNSHuTF-pnl5vWkTmgK-fU" />
+        <env name="ALCHEMY_NOTIFY_FORWARDER_BASE_SIGNING_KEY" value="whsec_QdSQhn8gjxChtgK408A9jIrn" />
+        <env name="LOG_TAIL_SOURCE_TOKEN" value="rNPM2N6qtmnvGvd8RvFmFiUL" />
+        <env name="MINI_WEB_APP_URL" value="http://localhost:3000" />
+        <env name="REPLICATE_API_TOKEN" value="r8_VkMTKLbS8S0pRsemtKiyK63TiCml8Qk4e2KsT" />
+        <env name="USER_IDENTITY_MASK_KEY" value="7b46d4d7cd48f75a6ca2200380fa5e28" />
+        <env name="WA_BUSINESS_NUMBER_ID" value="390485934157385" />
+        <env name="WA_CLOUD_ACCESS_TOKEN" value="EAAMbxZBQEfO0BOz05l8lu1ZCmPg6r8jZAXSQQwcb7RoY3MeZAlWtd5psxuXDzkQGa9AZBp5NvUf2orw1H1ow6HLlvOLPDuo7eM1HQDznP1w3i04TZAuwhJfZBSA3UM4SoUetfxJhvAnFgkkRzm2ZCqmXhXZC11xZBecSo8wrhJ92iEvZAnsjgHfiz26osZBYzZBfa2cXB9eJWSqw2buMIluH5L49kuZAzlb4DsLveCkxQTZAu8P" />
+        <env name="WA_CLOUD_API_URL" value="https://graph.facebook.com/v20.0" />
+        <env name="WA_WEBHOOK_VERIFY_TOKEN" value="5669eb53062f164432137afef852c9b0510f666c7c12437067eaba46e6cd2106" />
+        <env name="XATA_API_KEY" value="xau_2c3iZEL5a391A2wAgrQsv6A6zkJa1uIn0" />
+        <env name="XATA_BRANCH" value="main" />
+      </envs>
       <method v="2" />
     </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -124,6 +172,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Node.js.scratch_5.ts" />
       <item itemvalue="Node.js.eslint.config.mjs" />
       <item itemvalue="Node.js.scratch_3.ts" />
       <item itemvalue="npm.dev" />
@@ -163,7 +212,7 @@
       <workItem from="1728638415354" duration="2501000" />
       <workItem from="1728642657712" duration="34149000" />
       <workItem from="1728693246179" duration="9856000" />
-      <workItem from="1728729465105" duration="19315000" />
+      <workItem from="1728729465105" duration="49821000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -365,7 +414,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728748603198</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="use pnpm workspace">
+      <option name="closed" value="true" />
+      <created>1728751631955</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1728751631955</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +449,9 @@
     <MESSAGE value="add editor file" />
     <MESSAGE value="create flow bridges for erc20 and native token transfers" />
     <MESSAGE value="remove unused env vars" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove unused env vars" />
+    <MESSAGE value="use pnpm" />
+    <MESSAGE value="use pnpm workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="use pnpm workspace" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

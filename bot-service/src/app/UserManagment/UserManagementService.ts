@@ -4,6 +4,8 @@ import { SIGNING_TOKEN_LENGTH } from '@/constants/numbers';
 import env from '@/constants/env';
 import { isAddress } from 'viem';
 import { User } from '@/xata';
+import AlchemyNotifyService from '@/app/AlchemyNotify/AlchemyNotifyService';
+import { appConfig } from '@/constants/config';
 
 class UserManagementService {
     private static readonly USER_IDENTITY_MASK_KEY = env.USER_IDENTITY_MASK_KEY;
@@ -20,7 +22,7 @@ class UserManagementService {
             .getFirst();
     }
 
-    private static async generateSignInToken(phoneNumber: string) {
+    public static async generateSignInToken(phoneNumber: string) {
         const [randomHash, userIdentity] = await Promise.all([
             generateRandomHash(SIGNING_TOKEN_LENGTH),
             encrypt(phoneNumber, this.USER_IDENTITY_MASK_KEY),
@@ -32,7 +34,7 @@ class UserManagementService {
 
         const now = new Date();
 
-        const expiry = new Date(now.getTime() + 5 * 60 * 1000); // 5 minutes
+        const expiry = new Date(now.getTime() + 10 * 60 * 1000); // 10 minutes from now
 
         return encrypt(
             `${randomHash}.${userIdentity}.${expiry.getTime()}`,
@@ -40,7 +42,7 @@ class UserManagementService {
         );
     }
 
-    private static decodeSignInToken(signInToken: string) {
+    public static decodeSignInToken(signInToken: string) {
         const decrypted = decrypt(signInToken, this.USER_IDENTITY_MASK_KEY);
 
         if (!decrypted) {
@@ -106,9 +108,14 @@ class UserManagementService {
             throw new Error('User identity mismatch');
         }
 
-        return await targetUser.update({
-            smartWalletAddress,
-        });
+        const [updatedRecord] = await Promise.all([
+            targetUser.update({
+                smartWalletAddress,
+            }),
+            AlchemyNotifyService.addWebhookAddresses([smartWalletAddress], appConfig.APP_NETWORK),
+        ]);
+
+        return updatedRecord;
     }
 
     public static async searchUserBeneficiariesByName(user: User, name: string, useFuzzy: boolean) {
@@ -171,6 +178,16 @@ class UserManagementService {
             }),
             isExisting: false,
         };
+    }
+
+    public static async searchUsersByWalletAddress(walletAddress: string) {
+        return await userRepository
+            .filter({
+                smartWalletAddress: {
+                    $iContains: walletAddress,
+                },
+            })
+            .getAll();
     }
 }
 

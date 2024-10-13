@@ -3,8 +3,8 @@ import { z } from 'zod';
 ////////////////////////////////
 // Schema Definitions
 ////////////////////////////////
-export const supportedChainSchema = z.enum(['Base']);
-export const web3EnvironmentSchema = z.enum(['mainnet', 'testnet']);
+export const supportedChainSchema = z.enum(['Base'] as const);
+export const web3EnvironmentSchema = z.enum(['mainnet', 'testnet'] as const);
 export const urlSchema = z
     .custom<`http://${string}` | `https://${string}`>()
     .refine((data) => z.string().url().safeParse(data).success, {
