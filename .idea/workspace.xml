@@ -4,28 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="end-to-end integration for swaps">
-      <change afterPath="$PROJECT_DIR$/mini-webapp/src/pages/token-swap-tx.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/utils/text-compression.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="0fa77950-0b29-4ba7-bf85-84669bfea944" name="Changes" comment="update transaction confirmed message">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/AlchemyNotify/AlchemyNotifyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/AlchemyNotify/AlchemyNotifyService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/LiFi/LiFiIntegrationLibrary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/LiFi/LiFiIntegrationLibrary.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/AITextContextParser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/TextContexts/TextContextActionHandler.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/WhatsApp/UserInteractionHandlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot-service/src/utils/number-formatting.ts" beforeDir="false" afterPath="$PROJECT_DIR$/resources/utils/number-formatting.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/appConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/appConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/constants/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/native-transfer-tx.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/native-transfer-tx.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/pages/token-transfer-tx.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/pages/token-transfer-tx.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-webapp/src/resources/tokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mini-webapp/src/resources/tokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/abis/erc-20.ts" beforeDir="false" afterPath="$PROJECT_DIR$/resources/abis/erc-20.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserInfoTransportService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bot-service/src/app/UserManagment/UserInfoTransportService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +192,7 @@
       <workItem from="1728693246179" duration="9856000" />
       <workItem from="1728729465105" duration="54078000" />
       <workItem from="1728854180157" duration="19375000" />
-      <workItem from="1729021463021" duration="13103000" />
+      <workItem from="1729021463021" duration="14566000" />
     </task>
     <task id="LOCAL-00001" summary="getting based">
       <option name="closed" value="true" />
@@ -437,14 +418,21 @@
       <option name="project" value="LOCAL" />
       <updated>1728823447549</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="end-to-end integration for swaps">
+      <option name="closed" value="true" />
+      <created>1729038951650</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1729038951651</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add base implementation for bot interactions and user onboarding" />
     <MESSAGE value="revert bundler configuration" />
     <MESSAGE value="add render blue spec file" />
     <MESSAGE value="debug render deployment" />
@@ -469,7 +457,8 @@
     <MESSAGE value="uncomment token expiry check" />
     <MESSAGE value="piece" />
     <MESSAGE value="end-to-end integration for swaps" />
-    <option name="LAST_COMMIT_MESSAGE" value="end-to-end integration for swaps" />
+    <MESSAGE value="update transaction confirmed message" />
+    <option name="LAST_COMMIT_MESSAGE" value="update transaction confirmed message" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

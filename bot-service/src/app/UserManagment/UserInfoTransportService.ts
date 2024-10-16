@@ -52,10 +52,12 @@ class UserInfoTransportService {
         );
         const transactionValue = formatUnits(transaction.value, nativeToken.decimals);
 
-        const targetTransfer = tokenTransfers.find(
+        const targetTransfers = tokenTransfers.filter(
             (transfer) =>
                 transfer.from.toLocaleLowerCase() ===
-                getAddress(user.smartWalletAddress!).toLocaleLowerCase()
+                    getAddress(user.smartWalletAddress!).toLocaleLowerCase() ||
+                transfer.to.toLocaleLowerCase() ===
+                    getAddress(user.smartWalletAddress!).toLocaleLowerCase()
         );
 
         const transactionActivities: Array<{
@@ -65,14 +67,14 @@ class UserInfoTransportService {
             asset: string;
         }> = [];
 
-        if (targetTransfer) {
+        targetTransfers.forEach((targetTransfer) => {
             transactionActivities.push({
                 from: targetTransfer.from,
                 to: targetTransfer.to,
                 value: targetTransfer.formattedAmount,
                 asset: targetTransfer.tokenMetadata.symbol,
             });
-        }
+        });
 
         if (transactionValue !== '0') {
             transactionActivities.push({
@@ -87,7 +89,11 @@ class UserInfoTransportService {
             return;
         }
 
-        const message = this.generateTransactionMessage(transactionActivities, transactionHash);
+        const message = this.generateTransactionMessage(
+            transactionActivities,
+            transactionHash,
+            user.smartWalletAddress!
+        );
 
         const whatsAppMessage = MessageGenerators.generateInteractiveCtaUrlButtonMessage({
             recipient: user.phoneNumber!,
@@ -111,10 +117,13 @@ class UserInfoTransportService {
             value: string;
             asset: string;
         }>,
-        transactionHash: string
+        transactionHash: string,
+        userWalletAddress: string
     ) {
         let messages = transactionActivities.map((activity) => {
-            return `You sent ${activity.value} ${activity.asset} to ${activity.to}`;
+            const transactionAction = activity.from === userWalletAddress ? 'sent' : 'received';
+
+            return `You ${transactionAction} ${activity.value} ${activity.asset} to ${activity.to}`;
         });
 
         if (messages.length > 1) {
@@ -123,7 +132,7 @@ class UserInfoTransportService {
             });
         }
 
-        return `🆔 Transaction hash: ${transactionHash}\n\n📖 Summary:\n${messages.join('\n')}`;
+        return `📖 Summary:\n${messages.join('\n')}\n\n🆔 Transaction hash: ${transactionHash}`;
     }
 }
 
