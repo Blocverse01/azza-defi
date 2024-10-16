@@ -10,6 +10,7 @@ import {
 import {
     CREATE_NEW_USER_WALLET_CTA_TEXT,
     POWERED_BY_COINBASE_TEXT,
+    POWERED_BY_LIFI,
     SIGN_IN_TOKEN_URL_PARAM,
 } from '@/constants/strings';
 import { appConfig } from '@/constants/config';
@@ -17,11 +18,11 @@ import WhatsAppBotApi from '@/app/WhatsApp/WhatsAppBotApi';
 import UserManagementService from '@/app/UserManagment/UserManagementService';
 import { User, UserBeneficiary } from '@/xata';
 import Web3Library from '@/app/AzzaDeFi/Web3Library';
-import { Address, getAddress, parseUnits } from 'viem';
+import { Address, formatUnits, getAddress, parseUnits } from 'viem';
 import { getAppDefaultEvmConfig } from '@/resources/evm.config';
 import { getPublicClient } from '@/resources/viem/clients';
 import { getTokenAddress } from '@/resources/tokens';
-import { prettifyNumber } from '@/utils/number-formatting';
+import { prettifyNumber } from 'resources/utils/number-formatting';
 import {
     AddBeneficiaryAction,
     GetBalanceAction,
@@ -31,6 +32,8 @@ import {
 } from '@/app/WhatsApp/TextContexts/contextSchema';
 import { WhatsAppCtaUrlButtonMessage } from '@/app/WhatsApp/app.whatsapp.types';
 import LiFiIntegrationLibrary from '@/app/LiFi/LiFiIntegrationLibrary';
+import logger from '@/resources/logger';
+import { compressTextWithPako } from 'resources/utils/text-compression';
 
 class UserInteractionHandlers {
     public static async handleFirstTimeUserInteraction(
@@ -223,7 +226,7 @@ class UserInteractionHandlers {
 
     public static async handleSendToBasenameOrAddressInteraction(
         phoneNumberParams: PhoneNumberParams,
-        user: User,
+        _user: User,
         interactionParams: SendTokenToAddressOrBaseNameAction['params'],
         network: SupportedChain
     ) {
@@ -360,6 +363,10 @@ class UserInteractionHandlers {
         interactionParams: SwapTokensAction['params'],
         network: SupportedChain
     ) {
+        if (appConfig.APP_WEB3_ENVIRONMENT === 'testnet') {
+            throw new Error('Swaps not supported on testnet');
+        }
+
         if (!user.smartWalletAddress) {
             throw new Error('User does not have a smart wallet address');
         }
@@ -396,25 +403,111 @@ class UserInteractionHandlers {
         const networkConfig = getAppDefaultEvmConfig(network, appConfig.APP_WEB3_ENVIRONMENT);
         const publicClient = Web3Library.getPublicClient(networkConfig);
 
-        if (!fromTokenAddress || !toTokenAddress) {
-            throw new Error(`Dev Error: Token ${fromToken} or ${toToken} not found in token list`);
+        const tokensWithNoAddress: string[] = [];
+
+        if (!fromTokenAddress && fromTokenValidation.data !== 'ETH') {
+            tokensWithNoAddress.push(fromToken);
+        }
+        if (!toTokenAddress && toTokenValidation.data !== 'ETH') {
+            tokensWithNoAddress.push(toToken);
         }
 
-        const fromTokenDecimals = await Web3Library.getTokenDecimals(
-            publicClient,
-            fromTokenAddress
+        if (tokensWithNoAddress.length > 0) {
+            void logger.error('Supported tokens with no address config found', {
+                tokensWithNoAddress,
+            });
+
+            return;
+        }
+
+        await WhatsAppBotApi.sendWhatsappMessage(
+            phoneNumberParams.businessPhoneNumberId,
+            MessageGenerators.generateTextMessage(
+                phoneNumberParams.userPhoneNumber,
+                `🔍 Getting quotes to swap ${fromToken} to ${toToken}`
+            )
         );
 
-        const quote = await LiFiIntegrationLibrary.getQuotes({
+        const fromTokenDecimals = fromTokenAddress
+            ? await Web3Library.getTokenDecimals(publicClient, fromTokenAddress)
+            : 18; // Fallback to 18 decimals when token is ETH
+
+        const quote = await LiFiIntegrationLibrary.getQuote({
             fromAmount: parseUnits(amount, fromTokenDecimals).toString(),
-            fromToken: fromTokenAddress,
+            fromToken: fromTokenAddress ?? fromToken,
             fromChain: networkConfig.viemChain.id,
-            fromAddress: user.smartWalletAddress!,
+            fromAddress: user.smartWalletAddress,
             toChain: networkConfig.viemChain.id,
-            toToken: toTokenAddress,
+            toToken: toTokenAddress ?? toToken,
         });
 
-        console.log(quote);
+        const quote_fromToken = quote.action.fromToken;
+        const quote_toToken = quote.action.toToken;
+        const slippage = quote.action.slippage;
+        const quoteEstimate = quote.estimate;
+        const transactionRequest = quote.transactionRequest;
+
+        if (!transactionRequest) {
+            void logger.debug('Quote retrieved with no transactionRequest param', {
+                quote,
+            });
+
+            await WhatsAppBotApi.sendWhatsappMessage(
+                phoneNumberParams.businessPhoneNumberId,
+                MessageGenerators.generateTextMessage(
+                    phoneNumberParams.userPhoneNumber,
+                    'Sorry, an error occurred processing your swap request'
+                )
+            );
+
+            return;
+        }
+
+        const signingToken = await UserManagementService.generateSignInToken(
+            phoneNumberParams.userPhoneNumber
+        );
+
+        const formattedFromAmount = formatUnits(
+            BigInt(quoteEstimate.fromAmount),
+            quote_fromToken.decimals
+        );
+        const formattedToAmount = formatUnits(
+            BigInt(quoteEstimate.toAmount),
+            quote_toToken.decimals
+        );
+
+        const [prettifiedFromAmount, prettifiedToAmount] = [
+            prettifyNumber(Number(formattedFromAmount), 6),
+            prettifyNumber(Number(formattedToAmount), 6),
+        ];
+
+        const transactionSummaryMessageBody = [
+            `🔄 _Swap_ *_${fromToken}_* to *_${toToken}_*\n`,
+            `From Amount: *${prettifiedFromAmount} ${fromToken}*`,
+            `To Amount: *${prettifiedToAmount} ${toToken}*`,
+            `Slippage: *${slippage * 100}%*`,
+        ].join('\n');
+
+        const compressedDataText = encodeURIComponent(
+            compressTextWithPako(transactionRequest.data ?? '')
+        );
+        const compressedSIT = encodeURIComponent(compressTextWithPako(signingToken));
+
+        const txURI = `${appConfig.MINI_APP_URL}/token-swap-tx?data=${compressedDataText}&to=${transactionRequest.to}&sit=${compressedSIT}&approvalAddress=${quoteEstimate.approvalAddress}&fromToken=${fromToken}&toToken=${toToken}&fromAmount=${encodeURIComponent(formattedFromAmount)}&toAmount=${encodeURIComponent(formattedToAmount)}&slippage=${slippage}&value=${transactionRequest.value}`;
+
+        const transactionSummaryMessage = MessageGenerators.generateInteractiveCtaUrlButtonMessage({
+            recipient: phoneNumberParams.userPhoneNumber,
+            bodyText: transactionSummaryMessageBody,
+            ctaUrl: txURI as Url,
+            ctaText: 'Confirm Transaction',
+            headerText: 'Transaction Summary\n\n',
+            footerText: POWERED_BY_LIFI,
+        });
+
+        await WhatsAppBotApi.sendWhatsappMessage(
+            phoneNumberParams.businessPhoneNumberId,
+            transactionSummaryMessage
+        );
     }
 
     public static async handleAddBeneficiaryInteraction(

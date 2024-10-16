@@ -48,6 +48,15 @@ class TextContextActionHandler {
                     action.params
                 );
                 return true;
+            case 'swap_tokens':
+                await UserInteractionHandlers.handleSwapTokensInteraction(
+                    whatsAppPhoneParams,
+                    user,
+                    action.params,
+                    appConfig.APP_NETWORK
+                );
+                return true;
+
             default:
                 return false;
         }

@@ -36,13 +36,13 @@ class AITextContextParser {
             model: this.MODEL,
         });
 
-        console.log(response);
+        console.log({ replicateResponse: response });
 
         try {
             // Match JSON in response
             const extractedJson = extractJson(response);
 
-            console.log(extractedJson, response);
+            console.log({ extractedJson });
 
             const responseJson = extractedJson ? extractedJson : (JSON.parse(response) as unknown);
 

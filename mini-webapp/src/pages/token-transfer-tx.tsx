@@ -34,6 +34,8 @@ import {
 } from "@coinbase/onchainkit/identity";
 import { sendTransferTransactionHash } from "~/data/adapters/userAdapter";
 import { WHATSAPP_BOT_LINK } from "~/constants/strings";
+import { useAccount } from "wagmi";
+import { ConnectWallet, Wallet } from "@coinbase/onchainkit/wallet";
 
 type DecodedTokenTransferTx = {
   recipient: AddressType;
@@ -49,6 +51,8 @@ export default function TokenTransferTxPage() {
   const [decodedTx, setDecodedTx] = useState<DecodedTokenTransferTx | null>(
     null,
   );
+
+  const account = useAccount();
 
   useEffect(() => {
     if (!to || !data || !decimals) {
@@ -125,11 +129,11 @@ export default function TokenTransferTxPage() {
           <div className={"flex justify-center"}>
             <Image src={Logo as string} alt="logo" />
           </div>
-          <div className={"flex flex-col gap-5"}>
+          <div className={"flex flex-col gap-6"}>
             <h1 className={"text-center w-fit font-subj mx-auto text-2xl"}>
               Token Transfer Summary
             </h1>
-            <div className={"flex flex-col gap-3"}>
+            <div className={"flex flex-col gap-5"}>
               <div className={"flex flex-col gap-1"}>
                 <h3 className={"font-medium"}>Send:</h3>
                 {token && (
@@ -176,41 +180,53 @@ export default function TokenTransferTxPage() {
             </div>
           </div>
 
-          <Transaction
-            contracts={[
-              {
-                abi: TRANSFER_ABI,
-                address: decodedTx.tokenAddress,
-                functionName: "transfer",
-                args: [decodedTx.recipient, decodedTx.amount],
-              },
-            ]}
-            onSuccess={(response) => {
-              const targetReceipt = response.transactionReceipts[0];
+          {account?.isConnected ? (
+            <Transaction
+              contracts={[
+                {
+                  abi: TRANSFER_ABI,
+                  address: decodedTx.tokenAddress,
+                  functionName: "transfer",
+                  args: [decodedTx.recipient, decodedTx.amount],
+                },
+              ]}
+              onSuccess={(response) => {
+                const targetReceipt = response.transactionReceipts[0];
 
-              if (targetReceipt) {
-                sendTransferTransactionHash(targetReceipt?.transactionHash, sit)
-                  .then((response) => {
-                    console.log(response);
-                  })
-                  .catch((error) => {
-                    console.log("Failed to send transaction hash", error);
-                  });
-              }
-            }}
-          >
-            <TransactionButton text={"Confirm Transfer"} />
-            <TransactionSponsor />
-            <TransactionToast>
-              <TransactionToastIcon />
-              <TransactionToastLabel />
-              <TransactionToastAction />
-            </TransactionToast>
-            <TransactionStatus>
-              <TransactionStatusLabel />
-              <TransactionStatusAction />
-            </TransactionStatus>
-          </Transaction>
+                if (targetReceipt) {
+                  sendTransferTransactionHash(
+                    targetReceipt?.transactionHash,
+                    sit,
+                  )
+                    .then((response) => {
+                      console.log(response);
+                    })
+                    .catch((error) => {
+                      console.log("Failed to send transaction hash", error);
+                    });
+                }
+              }}
+            >
+              <TransactionButton text={"Confirm Transfer"} />
+              <TransactionSponsor />
+              <TransactionToast>
+                <TransactionToastIcon />
+                <TransactionToastLabel />
+                <TransactionToastAction />
+              </TransactionToast>
+              <TransactionStatus>
+                <TransactionStatusLabel />
+                <TransactionStatusAction />
+              </TransactionStatus>
+            </Transaction>
+          ) : (
+            <Wallet>
+              <ConnectWallet>
+                <Avatar className="h-6 w-6" />
+                <Name />
+              </ConnectWallet>
+            </Wallet>
+          )}
         </div>
       </div>
     </>

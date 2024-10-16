@@ -1,3 +1,3 @@
 export const appConfig = {
-  APP_WEB3_ENVIRONMENT: "testnet" as "testnet" | "mainnet",
+  APP_WEB3_ENVIRONMENT: "mainnet" as "testnet" | "mainnet",
 };

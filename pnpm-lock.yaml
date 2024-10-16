@@ -32,6 +32,9 @@ importers:
       replicate:
         specifier: ^0.34.0
         version: 0.34.1
+      resources:
+        specifier: workspace:*
+        version: link:../resources
       viem:
         specifier: ^2.21.22
         version: 2.21.23(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.23.8)
@@ -152,7 +155,18 @@ importers:
         specifier: ^5.5.3
         version: 5.6.3
 
-  resources: {}
+  resources:
+    dependencies:
+      lz-string:
+        specifier: ^1.5.0
+        version: 1.5.0
+      pako:
+        specifier: ^2.1.0
+        version: 2.1.0
+    devDependencies:
+      '@types/pako':
+        specifier: ^2.0.3
+        version: 2.0.3
 
 packages:
 
@@ -1776,6 +1790,9 @@ packages:
 
   '@types/node@20.16.11':
     resolution: {integrity: sha512-y+cTCACu92FyA5fgQSAI8A1H429g7aSK2HsO7K4XYUWc4dY5IUz55JSDIYT6/VsOLfGy8vmvQYC2hfb0iF16Uw==}
+
+  '@types/pako@2.0.3':
+    resolution: {integrity: sha512-bq0hMV9opAcrmE0Byyo0fY3Ew4tgOevJmQ9grUhpXQhYfyLJ1Kqg3P33JT5fdbT2AjeAjR51zqqVjAL/HMkx7Q==}
 
   '@types/prop-types@15.7.13':
     resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
@@ -3862,6 +3879,10 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
+  lz-string@1.5.0:
+    resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
+    hasBin: true
+
   make-dir@2.1.0:
     resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
     engines: {node: '>=6'}
@@ -4285,6 +4306,9 @@ packages:
 
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
+
+  pako@2.1.0:
+    resolution: {integrity: sha512-w+eufiZ1WuJYgPXbV/PO3NCMEc3xqylkKHzp8bxp1uW4qaSNQUkwmLLEc3kKsfz8lpV1F8Ht3U1Cm+9Srog2ug==}
 
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
@@ -7705,6 +7729,8 @@ snapshots:
     dependencies:
       undici-types: 6.19.8
 
+  '@types/pako@2.0.3': {}
+
   '@types/prop-types@15.7.13': {}
 
   '@types/qs@6.9.16': {}
@@ -10495,6 +10521,8 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
+  lz-string@1.5.0: {}
+
   make-dir@2.1.0:
     dependencies:
       pify: 4.0.1
@@ -11006,6 +11034,8 @@ snapshots:
   p-try@2.2.0: {}
 
   package-json-from-dist@1.0.1: {}
+
+  pako@2.1.0: {}
 
   parent-module@1.0.1:
     dependencies:

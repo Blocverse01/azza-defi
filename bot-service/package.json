@@ -22,7 +22,8 @@
     "express": "^4.19.2",
     "replicate": "^0.34.0",
     "viem": "^2.21.22",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "resources": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^9.12.0",

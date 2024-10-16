@@ -21,7 +21,6 @@ import {
 import Head from "next/head";
 import Logo from "../assets/logo.svg";
 import Image from "next/image";
-import { TokenRow } from "@coinbase/onchainkit/token";
 import { getTokenBySymbol } from "~/resources/tokens";
 import {
   Address,
@@ -32,6 +31,9 @@ import {
 } from "@coinbase/onchainkit/identity";
 import { WHATSAPP_BOT_LINK } from "~/constants/strings";
 import { sendTransferTransactionHash } from "~/data/adapters/userAdapter";
+import { useAccount } from "wagmi";
+import { ConnectWallet, Wallet } from "@coinbase/onchainkit/wallet";
+import { TokenRow } from "@coinbase/onchainkit/token";
 
 type DecodedTokenTransferTx = {
   recipient: AddressType;
@@ -46,6 +48,8 @@ export default function NativeTransferTxPage() {
   const [decodedTx, setDecodedTx] = useState<DecodedTokenTransferTx | null>(
     null,
   );
+
+  const account = useAccount();
 
   useEffect(() => {
     if (!to || !amount) {
@@ -108,11 +112,11 @@ export default function NativeTransferTxPage() {
           <div className={"flex justify-center"}>
             <Image src={Logo as string} alt="logo" />
           </div>
-          <div className={"flex flex-col gap-5"}>
+          <div className={"flex flex-col gap-6"}>
             <h1 className={"text-center w-fit font-subj mx-auto text-2xl"}>
               ETH Transfer Summary
             </h1>
-            <div className={"flex flex-col gap-3"}>
+            <div className={"flex flex-col gap-5"}>
               <div className={"flex flex-col gap-1"}>
                 <h3 className={"font-medium"}>Send:</h3>
                 {token && (
@@ -159,39 +163,51 @@ export default function NativeTransferTxPage() {
             </div>
           </div>
 
-          <Transaction
-            calls={[
-              {
-                to: decodedTx.recipient,
-                value: decodedTx.amount,
-              },
-            ]}
-            onSuccess={(response) => {
-              const targetReceipt = response.transactionReceipts[0];
+          {account?.isConnected ? (
+            <Transaction
+              calls={[
+                {
+                  to: decodedTx.recipient,
+                  value: decodedTx.amount,
+                },
+              ]}
+              onSuccess={(response) => {
+                const targetReceipt = response.transactionReceipts[0];
 
-              if (targetReceipt) {
-                sendTransferTransactionHash(targetReceipt?.transactionHash, sit)
-                  .then((response) => {
-                    console.log(response);
-                  })
-                  .catch((error) => {
-                    console.log("Failed to send transaction hash", error);
-                  });
-              }
-            }}
-          >
-            <TransactionButton text={"Confirm Transfer"} />
-            <TransactionSponsor />
-            <TransactionToast>
-              <TransactionToastIcon />
-              <TransactionToastLabel />
-              <TransactionToastAction />
-            </TransactionToast>
-            <TransactionStatus>
-              <TransactionStatusLabel />
-              <TransactionStatusAction />
-            </TransactionStatus>
-          </Transaction>
+                if (targetReceipt) {
+                  sendTransferTransactionHash(
+                    targetReceipt?.transactionHash,
+                    sit,
+                  )
+                    .then((response) => {
+                      console.log(response);
+                    })
+                    .catch((error) => {
+                      console.log("Failed to send transaction hash", error);
+                    });
+                }
+              }}
+            >
+              <TransactionButton text={"Confirm Transfer"} />
+              <TransactionSponsor />
+              <TransactionToast>
+                <TransactionToastIcon />
+                <TransactionToastLabel />
+                <TransactionToastAction />
+              </TransactionToast>
+              <TransactionStatus>
+                <TransactionStatusLabel />
+                <TransactionStatusAction />
+              </TransactionStatus>
+            </Transaction>
+          ) : (
+            <Wallet>
+              <ConnectWallet>
+                <Avatar className="h-6 w-6" />
+                <Name />
+              </ConnectWallet>
+            </Wallet>
+          )}
         </div>
       </div>
     </>

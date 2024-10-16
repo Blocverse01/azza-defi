@@ -9,9 +9,9 @@ import { OK } from '@/constants/status-codes';
 import WhatsAppBotApi from '@/app/WhatsApp/WhatsAppBotApi';
 import { getAddress } from 'viem';
 import { TRANSFER_EVENT_TOPIC } from '@/constants/strings';
-import { SupportedChain } from '@/schemas/schemas.base';
+import { SupportedChain, Url } from '@/schemas/schemas.base';
 import UserManagementService from '@/app/UserManagment/UserManagementService';
-import { prettifyNumber } from '@/utils/number-formatting';
+import { prettifyNumber } from 'resources/utils/number-formatting';
 
 enum AlchemyActivityCategory {
     TOKEN = 'token',
@@ -62,14 +62,15 @@ class AlchemyNotifyService {
                 receiverAddress: toAddress,
                 transactionHash: targetActivity.hash,
                 concernedWalletAddress: fromAddress,
-                explorerUrl: explorerUrl,
             });
 
             const promises = fromWalletProfiles.map(async (profile) => {
-                const whatsAppMessage = MessageGenerators.generateTextMessage(
-                    profile.phoneNumber!,
-                    message
-                );
+                const whatsAppMessage = MessageGenerators.generateInteractiveCtaUrlButtonMessage({
+                    recipient: profile.phoneNumber!,
+                    bodyText: message,
+                    ctaText: 'View on Explorer',
+                    ctaUrl: explorerUrl as Url,
+                });
 
                 return WhatsAppBotApi.sendWhatsappMessage(
                     env.WA_BUSINESS_NUMBER_ID,
@@ -88,14 +89,15 @@ class AlchemyNotifyService {
                 senderAddress: fromAddress,
                 transactionHash: targetActivity.hash,
                 concernedWalletAddress: toAddress,
-                explorerUrl: explorerUrl,
             });
 
             const promises = toWalletProfiles.map(async (profile) => {
-                const whatsAppMessage = MessageGenerators.generateTextMessage(
-                    profile.phoneNumber!,
-                    message
-                );
+                const whatsAppMessage = MessageGenerators.generateInteractiveCtaUrlButtonMessage({
+                    recipient: profile.phoneNumber!,
+                    bodyText: message,
+                    ctaText: 'View on Explorer',
+                    ctaUrl: explorerUrl as Url,
+                });
 
                 return WhatsAppBotApi.sendWhatsappMessage(
                     env.WA_BUSINESS_NUMBER_ID,
@@ -142,7 +144,6 @@ class AlchemyNotifyService {
         assetNetwork: string;
         senderAddress: string;
         transactionHash: string;
-        explorerUrl: string;
         concernedWalletAddress: string;
     }): string {
         const {
@@ -150,12 +151,11 @@ class AlchemyNotifyService {
             assetName,
             assetNetwork,
             transactionHash,
-            explorerUrl,
             senderAddress,
             concernedWalletAddress,
         } = params;
 
-        return `🔔 Crypto Deposit Notification.\n\n*Wallet:* ${concernedWalletAddress}\n\n🧾 *Summary:*\nReceived *${prettifyNumber(Number(tokenAmount), 6)} ${assetName}* on *${assetNetwork}* from ${senderAddress}\n\n➡️ *Transaction Hash:* ${transactionHash}\n\n🔍 *View In Explorer:* ${explorerUrl}`;
+        return `🔔 Crypto Deposit Notification.\n\n*Wallet:* ${concernedWalletAddress}\n\n🧾 *Summary:*\nReceived *${prettifyNumber(Number(tokenAmount), 6)} ${assetName}* on *${assetNetwork}* from ${senderAddress}\n\n🆔 *Transaction Hash:* ${transactionHash}`;
     }
 
     public static generateSentTokenMessage(params: {
@@ -164,7 +164,6 @@ class AlchemyNotifyService {
         assetNetwork: string;
         receiverAddress: string;
         transactionHash: string;
-        explorerUrl: string;
         concernedWalletAddress: string;
     }): string {
         const {
@@ -172,12 +171,11 @@ class AlchemyNotifyService {
             assetName,
             assetNetwork,
             transactionHash,
-            explorerUrl,
             receiverAddress,
             concernedWalletAddress,
         } = params;
 
-        return `🔔 Crypto Withdrawal Notification.\n\n*Wallet:* ${concernedWalletAddress}\n\n🧾 *Summary:*\nSent *${prettifyNumber(Number(tokenAmount), 6)} ${assetName}* on *${assetNetwork}* to ${receiverAddress}\n\n➡️ *Transaction Hash:* ${transactionHash}\n\n🔍 *View In Explorer:* ${explorerUrl}`;
+        return `🔔 Crypto Withdrawal Notification.\n\n*Wallet:* ${concernedWalletAddress}\n\n🧾 *Summary:*\nSent *${prettifyNumber(Number(tokenAmount), 6)} ${assetName}* on *${assetNetwork}* to ${receiverAddress}\n\n🆔 *Transaction Hash:* ${transactionHash}`;
     }
 }
 

@@ -4,6 +4,8 @@ export const CREATE_NEW_USER_WALLET_CTA_TEXT = 'Create My Wallet';
 
 export const POWERED_BY_COINBASE_TEXT = 'Powered by Coinbase Smart Wallet';
 
+export const POWERED_BY_LIFI = 'Powered by LiFi';
+
 export const SIGN_IN_TOKEN_URL_PARAM = 'sit';
 
 export const MINI_WEB_APP_LIVE_URL = 'https://azza-defi-mini-app.vercel.app';

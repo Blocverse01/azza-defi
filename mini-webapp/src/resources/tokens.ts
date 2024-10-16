@@ -72,3 +72,11 @@ export const getTokenBySymbol = (symbol: string): Token | undefined => {
     (token) => token.symbol.toLocaleLowerCase() === symbol.toLocaleLowerCase(),
   );
 };
+
+export const getTokenBySymbolAndChainId = (symbol: string, chainId: number) => {
+  return SUPPORTED_TOKENS.find(
+    (token) =>
+      token.symbol.toLocaleLowerCase() === symbol.toLocaleLowerCase() &&
+      token.chainId === chainId,
+  );
+};
