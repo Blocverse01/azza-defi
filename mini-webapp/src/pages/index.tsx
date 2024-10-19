@@ -29,7 +29,7 @@ export default function Home({ userDisplayName, signInToken }: PageProps) {
 
   async function syncWalletWithSignInToken(
     signInToken: string,
-    walletAddress: string,
+    walletAddress: string
   ) {
     if (!signInToken) {
       alert("Invalid sign in token");
@@ -50,7 +50,7 @@ export default function Home({ userDisplayName, signInToken }: PageProps) {
 
   const createWallet = useCallback(async () => {
     const coinbaseWalletConnector = connectors.find(
-      (connector) => connector.id === "coinbaseWalletSDK",
+      (connector) => connector.id === "coinbaseWalletSDK"
     );
 
     if (!signInToken) {
@@ -79,8 +79,8 @@ export default function Home({ userDisplayName, signInToken }: PageProps) {
     <>
       <Head>
         <title>Azza DeFi</title>
-        <meta name="description" content="Azza DeFi" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='Azza DeFi' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <div className={`bg-az-primary-green`}>
@@ -89,7 +89,7 @@ export default function Home({ userDisplayName, signInToken }: PageProps) {
             "relative hero-background mt text-white py-4 px-6 md:px-[120px] "
           }
         >
-          <Image src={Logo as string} alt="logo" />
+          <Image src={Logo as string} alt='logo' />
           <div
             className={
               "flex relative z-10 mt-[43px] flex-col max-w-[845px] mx-auto space-y-[32px] md:space-y-[44px]"
@@ -103,13 +103,15 @@ export default function Home({ userDisplayName, signInToken }: PageProps) {
 
             {!syncedWalletAddress ? (
               <>
-                <p className="font-subj leading-[28px] md:leading-[54px] uppercase text-center text-[32px] md:text-[56px]">
+                <p className='font-subj leading-[28px] md:leading-[54px] uppercase text-center text-[32px] md:text-[56px]'>
                   You&apos;re about to{" "}
                   <span className={" text-az-primary-yellow "}>
                     create a wallet
                   </span>{" "}
                   on{" "}
-                  <span className={" text-az-secondary-green-1 "}>Azza </span>
+                  <span className={" text-az-secondary-green-1 "}>
+                    Azza DeFi{" "}
+                  </span>
                 </p>
                 <p
                   className={
@@ -117,7 +119,7 @@ export default function Home({ userDisplayName, signInToken }: PageProps) {
                   }
                 >
                   Hi, {userDisplayName}. Kindly click on the button below to
-                  continue creating a wallet on AZZA.
+                  continue creating a wallet on AZZA DeFi.
                 </p>
 
                 <button
@@ -145,11 +147,13 @@ export default function Home({ userDisplayName, signInToken }: PageProps) {
             <Info />
             <div className={" flex flex-col space-y-[3px]"}>
               <p className={"uppercase font-subj text-[24px] font-[800px] "}>
-                What is Azza?
+                What is Azza DeFi?
               </p>
               <p className={"text-[20px]"}>
-                AZZA is a WhatsApp bot which helps you move your funds between
-                crypto and fiat easily (all on WhatsApp).
+                Azza DeFi is a Whatsapp bot that lets you swap, buy, sell, and
+                transfer crypto directly on WhatsApp. Simplify transactions with
+                base names, making it easy to send and receive crypto using
+                familiar identifiers.
               </p>
             </div>
           </div>
@@ -172,7 +176,7 @@ export default function Home({ userDisplayName, signInToken }: PageProps) {
 }
 
 export const getServerSideProps = async (
-  context: GetServerSidePropsContext,
+  context: GetServerSidePropsContext
 ) => {
   const { sit } = context.query;
 

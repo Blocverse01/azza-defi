@@ -4,17 +4,17 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqData = [
   {
-    title: "What are the supported blockchains on AZZA?",
+    title: "What are the supported blockchains on AZZA DeFi?",
     content:
       "List of Blockchain Networks: Base, Polygon (coming soon), Arbitrum (coming soon)",
   },
   {
-    title: "What are the supported cryptocurrencies on AZZA?",
+    title: "What are the supported cryptocurrencies on AZZA DeFi?",
     content:
       "USDC, ETH on Base, MATIC (coming soon), ETH on Arbitrum (coming soon), USDT (coming soon)",
   },
   {
-    title: "What local currencies are available on AZZA?",
+    title: "What local currencies are available on AZZA DeFi?",
     content:
       "Ethiopia (BIRR), Nigeria (NGN), Kenya (KES), Benin (CFA), South Africa (ZAR), Uganda (UGX), Ghana (GHS), Cameroon (XAF)",
   },
