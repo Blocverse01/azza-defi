@@ -347,7 +347,7 @@ class UserInteractionHandlers {
             message = MessageGenerators.generateInteractiveCtaUrlButtonMessage({
                 recipient: phoneNumberParams.userPhoneNumber,
                 bodyText: transactionSummaryMessageText,
-                ctaUrl: `${appConfig.MINI_APP_URL}/native-transfer-tx?to=${recipientAddress}&sit=${signingToken}&amount=${amount}`,
+                ctaUrl: `${appConfig.MINI_APP_URL}/native-transfer-tx?to=${resolvedRecipientAddress}&sit=${signingToken}&amount=${amount}`,
                 ctaText: 'Confirm Transaction',
                 headerText: 'Transaction Summary\n\n',
                 footerText: POWERED_BY_COINBASE_TEXT,
