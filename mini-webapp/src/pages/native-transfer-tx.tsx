@@ -169,6 +169,7 @@ export default function NativeTransferTxPage() {
                 {
                   to: decodedTx.recipient,
                   value: decodedTx.amount,
+                  data: "0x0",
                 },
               ]}
               onSuccess={(response) => {
